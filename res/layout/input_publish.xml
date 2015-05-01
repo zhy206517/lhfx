@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/common_bg_bit" >
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/input_title" />
+        <LinearLayout
+        	android:id="@+id/input_content_area"
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:layout_above="@+id/bottom_area"
+        	android:layout_below="@id/title_bar"
+        	android:layout_marginLeft="@dimen/publish_input_image_padding"
+        	android:layout_marginRight="@dimen/publish_input_image_padding"
+        	android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/insert_image_area"
+                android:layout_width="fill_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/dotted_line_solid"
+                android:gravity="center"
+                android:paddingBottom="16dp" >
+                <TextView
+                    android:id="@+id/insert_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="4dp"
+                    android:drawableTop="@drawable/input_photo"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1.1"
+                    android:text="@string/publish_input_image"
+                    android:textColor="#AFA7A4" />
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/has_image_area"
+                android:layout_width="fill_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" >
+                <com.youa.mobile.login.widget.CustomGallery
+                    android:id="@+id/has_image"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:fadingEdge="none"
+                    android:spacing="0dp" />
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+                    android:padding="5dp" >
+                    <LinearLayout  android:layout_width="wrap_content"
+                    			   android:layout_height="wrap_content"
+                    			   android:layout_centerInParent="true"
+                    			   android:orientation="horizontal"
+                    			   android:id="@+id/pic_index">
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/add_img_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="4dp"
+                        android:paddingBottom="16dp"
+                        android:src="@drawable/input_image_bt_bg_selector" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/content_area"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="-16dp"
+                android:orientation="vertical" >
+                <com.youa.mobile.input.BitmapCanInsertEditText
+                    android:id="@+id/edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/input_edit_area"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="top|left"
+                    android:hint="@string/publish_edit_default"
+                    android:lineSpacingExtra="6dp"
+                    android:paddingLeft="17dp"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textColorHint="#aaaaaa"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/consume_info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/publish_input_image_padding"
+            android:layout_marginRight="@dimen/publish_input_image_padding"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/position_info_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/location_bg_selector"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/insert_position"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/input_position_add_selector" />
+
+                <TextView
+                    android:id="@+id/position_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/insert_position"
+                    android:gravity="center"
+                    android:text="@string/get_location_cur" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar_loc"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/position_info"
+                    android:indeterminate="false"
+                    android:indeterminateDrawable="@drawable/process" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/price_info_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/price_bg_selector"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/insert_consume"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/input_price_sec" />
+
+                <TextView
+                    android:id="@+id/price_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/insert_consume"
+                    android:gravity="center"
+                    android:text="@string/add_price_info" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/sync_account_area"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" >
+
+            <LinearLayout
+                android:id="@+id/sync_btns_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/publish_sync_account"
+                    android:textColor="#979797"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/sync_account_sina"
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:button="@drawable/input_sync_sina_sec"
+                    android:clickable="true" />
+
+                <CheckBox
+                    android:id="@+id/sync_account_qq"
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:button="@drawable/input_sync_qq_sec"
+                    android:clickable="true" />
+
+                <CheckBox
+                    android:id="@+id/sync_account_renren"
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"
+                    android:button="@drawable/input_sync_renren_sec"
+                    android:clickable="true" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="false"
+        android:indeterminateDrawable="@drawable/process" />
+
+</RelativeLayout>

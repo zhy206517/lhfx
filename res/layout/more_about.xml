@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/settings_bg_bit">
+
+    <include layout="@layout/more_title"/>
+    <ScrollView  android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent">
+	    <LinearLayout android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical">
+			<RelativeLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="12dp"
+			    android:layout_marginRight="12dp"
+			    android:layout_marginTop="20dp" 
+			    android:background="@drawable/information_kuang">
+			   <!--
+				   <TextView 
+			       android:id="@+id/about_context"
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content"
+			       android:layout_gravity="top|center_vertical"
+			       android:textSize="@dimen/information_content_size"
+			       android:textColor="@color/information_black"
+			       android:text="@string/about_context"/> 
+			   -->
+			   <ImageView 
+			       android:layout_width="wrap_content"
+			       android:layout_height="wrap_content"
+			       android:layout_margin="12dp"
+			       android:background="@drawable/about_img"
+			       android:scaleType="fitCenter"
+			       android:layout_centerInParent="true"/>
+			</RelativeLayout>
+			<RelativeLayout 
+			       android:layout_width="fill_parent"
+			       android:layout_height="wrap_content"
+			       android:layout_marginTop="20dp"
+			       android:layout_marginLeft="12dp"
+				   android:layout_marginRight="12dp"
+			       android:background="@drawable/information_kuang"
+			       android:orientation="horizontal"
+			       android:layout_gravity="center"
+			       android:paddingTop="4dip"
+			       android:paddingBottom="4dip">
+			   	<TextView
+			   	    android:id="@+id/version_NO_text"
+			   	    android:layout_width="150dp"
+			   	    android:layout_height="wrap_content"
+			   	    android:layout_marginLeft="12dp"
+			   	    android:layout_marginTop="8dp"
+			   	    android:layout_marginBottom="8dp"
+			   	    android:text="@string/about_version_lable"
+			   	    android:textColor="@color/information_black"
+			   	    android:textSize="@dimen/information_content_size"
+			   	    android:layout_alignParentLeft="true" 
+			   	    android:layout_centerVertical="true"/>
+			   	<!--  <TextView android:id="@+id/last_version_NO_text"
+			   	    android:layout_width="140dp"
+			   	    android:layout_height="wrap_content"
+			   	    android:layout_marginLeft="5dp"
+			   	    android:textSize="@dimen/information_subcontent_size"
+			       	android:textColor="@color/information_gray"
+			       	android:text="@string/about_last_version_lable"
+			       	android:layout_centerInParent="true"
+			       	android:layout_centerVertical="true"
+			       	android:visibility="gone"/>
+			     -->
+			</RelativeLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

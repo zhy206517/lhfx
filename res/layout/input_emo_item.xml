@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="40dp" 
+	android:layout_width="40dp">
+	<RelativeLayout 
+		android:layout_height="40dp"
+		android:layout_width="40dp">
+		<ImageView 
+			android:layout_height="22dp"
+			android:layout_width="22dp" 
+			android:id="@+id/emotion"
+			android:layout_centerInParent="true"/>
+	</RelativeLayout>
+</LinearLayout>

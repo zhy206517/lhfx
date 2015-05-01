@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:edit="http://schemas.android.com/apk/res/com.youa.mobile"
+    style="@style/feed_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/more_title" />
+
+<LinearLayout
+    android:layout_width="0px"
+    android:layout_height="0px"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <requestFocus />
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_input_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.youa.mobile.friend.friendsearch.MyEditText
+            android:id="@+id/search_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/input_search_box_bg"
+            android:gravity="center_vertical"
+            android:hint="@string/feed_friend_manager_input_hint"
+            edit:img_background_default="@drawable/friend_search"
+            edit:img_background_hover="@drawable/friend_search"
+            edit:img_search="@drawable/input_search_icon"
+            android:paddingBottom="4dip"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="4dip"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/search_button_height"
+            android:layout_weight="4"
+            android:background="@drawable/feed_friend_manager_button"
+            android:gravity="center"
+            android:shadowColor="#33000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.1"
+            android:text="@string/searchbox_edit_default"
+            android:textColor="#FFFFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/serch_people_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/recommend_supper_people"
+            android:textColor="#333333" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/search_gridView"
+        style="@style/life_common_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminate="false"
+        android:indeterminateDrawable="@drawable/process" />
+
+    <TextView
+        android:id="@+id/text_null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/life_search_no_result"
+        android:textColor="#979797"
+        android:visibility="gone" />
+
+</LinearLayout>

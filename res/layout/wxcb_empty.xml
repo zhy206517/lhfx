@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:gravity="center" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="40dp" >
+
+        <TextView
+            android:id="@+id/wxcb_tishi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/wxcb_tishi"
+            android:text="@string/no_prefer"
+            android:textColor="@color/information_sub_black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/wxcb_empty_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/wxcb_tishi"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:onClick="toSearchOrLogin"
+            android:background="@drawable/wxcb_btn_search" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/wxcb_empty_btn"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/wxcb_tishi"
+            android:contentDescription="@string/img"
+            android:src="@drawable/wxcb_arrow" />
+    </RelativeLayout>
+
+</LinearLayout>

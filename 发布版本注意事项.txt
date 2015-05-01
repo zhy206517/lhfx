@@ -1,0 +1,18 @@
+1.AndroidManifest.xml 中android:versionCode需要加1
+2.AndroidManifest.xml 中android:versionName需要和庆伟确认版本号（默认情况小号加1）
+3.需要发布的是签名的包
+4.需要写版本说明
+5.需要把(安装包,version,description)发给席强
+     注：
+      version在工程下升级目录中（修改修改里面的版本号对应android:versionCode）
+      description在工程下升级目录中
+          （修改修改里面的upgrade:, versionname:,description:）
+      
+             一定要在RD环境测试通过后，再放到外网上
+             
+6.把以下代码放到配置文件中中
+		<meta-data android:value="4efeb439527015222200002e"
+                   android:name="UMENG_APPKEY" />
+7.类DebugMode中的debug设置为false
+8.设置为连接线上版本
+9.配置渠道id

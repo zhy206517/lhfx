@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- feed -->
+	<dimen name="name_size">15sp</dimen>
+	<dimen name="time_size">13sp</dimen>
+	<dimen name="content_size">14sp</dimen>
+	<dimen name="size_10">10sp</dimen>
+	<dimen name="size_12">12sp</dimen>
+	<dimen name="size_13">13sp</dimen>
+	<dimen name="size_14">14sp</dimen>
+	<dimen name="size_15">15sp</dimen>
+	<dimen name="size_16">16sp</dimen>
+	<dimen name="size_17">17sp</dimen>
+	<dimen name="size_18">18sp</dimen>
+	<dimen name="size_20">20sp</dimen>
+	<dimen name="input_edit_size">20sp</dimen>
+	<dimen name="btnTextSize">14dip</dimen>
+	<dimen name="information_content_size">18sp</dimen>
+	<dimen name="information_subcontent_size">16sp</dimen>
+	<dimen name="feed_dot_line">1px</dimen>
+	<dimen name="title_bar_height">44dp</dimen>
+	<dimen name="content_title_bar_height">46dp</dimen>
+	<dimen name="publish_input_image_padding">10dp</dimen>
+	<dimen name="rotate_area_height">40dp</dimen>
+	<dimen name="draft_item_height">60dp</dimen>
+</resources>

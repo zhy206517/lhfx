@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost 
+	android:id="@+id/tabhost" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" 
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		style="@style/feed_bg">
+		<RelativeLayout style="@style/title_total">
+			<RadioGroup 
+				android:id="@+id/radio_group"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:orientation="horizontal"
+				android:layout_centerHorizontal="true"
+				android:gravity="center_vertical"
+				android:layout_marginBottom="2dp">
+				<RadioButton
+					android:id="@+id/life_super_people"
+					android:text="@string/life_title_people"
+					style="@style/news_top_radio"
+					android:background="@drawable/news_title_radio_bg_left"
+					android:checked="true"/>
+				<RadioButton
+					android:id="@+id/life_find_topic"
+					android:text="@string/life_title_topic"
+					style="@style/news_top_radio"
+					android:background="@drawable/news_title_radio_bg_right"/>
+			</RadioGroup>
+			<include layout="@layout/life_title"
+			    android:id="@+id/life_title_layout"
+				android:visibility="gone"/>
+		</RelativeLayout>
+		<TabWidget 
+			android:id="@android:id/tabs" 
+			android:visibility="gone"
+			android:layout_width="fill_parent" 
+			android:layout_height="0dip"/>
+		<FrameLayout 
+			android:id="@android:id/tabcontent"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0" />
+	</LinearLayout>
+</TabHost>

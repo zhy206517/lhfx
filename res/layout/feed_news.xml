@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" style="@style/feed_bg">
+	<!-- <include android:id="@+id/title" layout="@layout/feed_home_title"/> -->
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="44dip" android:background="#FF00FFFF">
+		<TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="news测试" />
+	</RelativeLayout>
+	
+</LinearLayout>

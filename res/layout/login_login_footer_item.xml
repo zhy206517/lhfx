@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:paddingTop="7.5dp"
+  android:paddingBottom="7.5dp"
+  android:background="@drawable/login_footer_item_bg">
+  <ImageView android:id="@+id/login_footer_item_logo"
+  	android:scaleType="fitCenter"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:paddingLeft="12dp"
+  	android:src="@drawable/feed_head_bg"/>
+  <TextView android:id="@+id/login_footer_item_text"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:layout_centerVertical="true"
+  	android:textSize="18sp"
+  	android:textColor="#333333"
+  	android:singleLine="true"
+  	android:ellipsize="marquee"
+  	android:paddingLeft="12dp"
+  	android:layout_toRightOf="@+id/login_footer_item_logo"
+  	android:layout_toLeftOf="@+id/login_footer_item_right"/>
+  <ImageView android:id="@+id/login_footer_item_right"
+  	android:scaleType="fitCenter"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:layout_marginLeft="12dp"
+  	android:src="@drawable/ic_list_right"
+  	android:layout_centerVertical="true"
+  	android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<drawable name="feed_item_bg_color">#00FFFFFF</drawable>
+	<drawable name="feed_item_color">@android:color/transparent</drawable>
+	<drawable name="feed_item_color_sel">#D5E6C4</drawable>
+	<drawable name="whrite">#FFFFFFFF</drawable>
+	<drawable name="transparent_background">#50000000</drawable>
+	<drawable name="transparent">#00000000</drawable>
+	<color name="feed_refresh_font_color">#FF666666</color>
+	<color name="red">#FFFF0000</color>
+	<color name="whrite">#FFFFFFFF</color>
+	<color name="tagtextcolor">#858585</color>
+	<color name="jingxuan_item_kuang">#d9d9d1</color>
+	<color name="black">#000000</color>
+	<color name="black_shadow">#00000059</color>
+	<color name="transparent">#00000000</color>
+	<color name="information_black">#443e34</color>
+	<color name="information_sub_black">#746c5f</color>
+	<color name="information_gray">#588c0e</color>
+	<color name="information_gray_button">#5e7291</color>
+	<color name="information_gray_background">#eaeaea</color>
+	<color name="cur_location_textcolor">#ffff66</color>
+	<color name="timeline_item_bg">#f1f3ee</color>
+	<color name="news_title_num_color">#494442</color>
+	<color name="feed_waterfall_content">#666361</color>
+	<color name="feed_waterfall_content_bg">#e5ffffff</color>
+</resources>	

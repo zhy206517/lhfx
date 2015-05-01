@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:descendantFocusability="afterDescendants"
+	android:background="@drawable/feed_item_bg"
+	android:paddingTop="4dp"
+	android:paddingBottom="4dp">
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	    <TextView 
+			android:id="@+id/topic_name" 
+			android:layout_width="220dp"
+			android:layout_height="44dp"
+			android:layout_alignParentLeft="true"
+			android:layout_marginLeft="12dp"
+			android:layout_marginRight="12dp"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:textSize="17sp"
+			android:gravity="center_vertical"
+			android:textColor="#000000"/>
+	    <TextView android:id="@+id/sub_unsub_topic_btn"
+	        android:layout_width="72dp"
+	        android:layout_height="30dp"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="12dp"
+	        android:layout_centerVertical="true"
+	        android:textSize="@dimen/size_13"
+	        android:textColor="#FFF"
+	        android:gravity="center"
+	        android:shadowColor="#ff466116"
+			android:shadowDx="-1"
+			android:shadowDy="-1"
+			android:shadowRadius="0.1"
+	        android:text="@string/topic_sub_btn_lable"
+	        android:clickable="true"
+	        android:background="@drawable/feed_take_theme_button_bg"/>
+	</RelativeLayout>
+</LinearLayout>

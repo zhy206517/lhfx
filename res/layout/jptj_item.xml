@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="6dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="8dp" >
+
+    <!-- android:background="@drawable/jptj_item_bg" -->
+
+
+    <!-- <View -->
+    <!-- android:id="@+id/app_line" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="1dp" -->
+    <!-- android:layout_alignParentTop="true" -->
+    <!-- android:layout_marginBottom="6dp" -->
+    <!-- android:background="@drawable/jptj_item_line_middle" /> -->
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/feed_img_bg"
+        android:contentDescription="@string/img" />
+    <!-- android:src="@drawable/icon" -->
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/to_download"
+        android:layout_toRightOf="@+id/app_icon"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/information_black"
+        android:textSize="@dimen/size_15" />
+
+    <TextView
+        android:id="@+id/app_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_name"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/to_download"
+        android:layout_toRightOf="@+id/app_icon"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/information_sub_black"
+        android:textSize="@dimen/size_13" />
+
+    <Button
+        android:id="@+id/to_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/app_icon"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/jptj_btn_download"
+        android:onClick="toDownloadApp"
+        android:visibility="gone" />
+
+</RelativeLayout>

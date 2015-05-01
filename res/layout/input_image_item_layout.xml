@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="2px"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/album_pic_top" />
+    <ImageView
+        android:id="@+id/album_img_id"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingBottom="2px"
+        android:paddingTop="2px"
+        android:scaleType="centerCrop" />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="2px"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/album_pic_bottom" />
+</RelativeLayout>

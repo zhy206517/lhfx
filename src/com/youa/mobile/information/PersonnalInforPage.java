@@ -1,0 +1,881 @@
+package com.youa.mobile.information;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.youa.mobile.ExitPage;
+import com.youa.mobile.LehoTabActivity;
+import com.youa.mobile.LehuoIntent;
+import com.youa.mobile.R;
+import com.youa.mobile.SystemConfig;
+import com.youa.mobile.UpdateService;
+import com.youa.mobile.common.base.ActionController;
+import com.youa.mobile.common.base.BaseListView;
+import com.youa.mobile.common.base.BasePage;
+import com.youa.mobile.common.manager.ApplicationManager;
+import com.youa.mobile.common.params.PageSize;
+import com.youa.mobile.common.util.picture.ImageUtil;
+import com.youa.mobile.content.ContentOriginActivity;
+import com.youa.mobile.content.ContentTranspondActivity;
+import com.youa.mobile.friend.data.HomeData;
+import com.youa.mobile.information.TimeLimeListView.TapGestureRecognize;
+import com.youa.mobile.information.action.AddCancelAttentAction;
+import com.youa.mobile.information.action.InitPersonalInfoAction;
+import com.youa.mobile.information.action.SearchCountAction;
+import com.youa.mobile.information.action.SearchOwnFeedAction;
+import com.youa.mobile.information.data.PersonalInformationData;
+import com.youa.mobile.information.data.ShowCountData;
+import com.youa.mobile.more.MoreMainPage;
+import com.youa.mobile.more.MoreUtil;
+import com.youa.mobile.news.NewsMainPage;
+import com.youa.mobile.news.util.NewsUtil;
+
+public class PersonnalInforPage extends BasePage implements
+		BaseListView.OnScrollEndListener, OnClickListener, TapGestureRecognize {// OnItemClickListener,
+
+	private class UpdateCountReceiver extends BroadcastReceiver {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			loadCountData();
+		}
+	}
+
+	public static final String EXTRA_REGISTER_REFRESH = "extra_register_refresh";
+	public static final String KEY_USER_NAME = "username";
+	public static final String KEY_USER_ID = "userid";
+	public static final String KEY_FROM_HOME = "fromHome";
+
+	private final int MENU_BACK = 1;
+	private final int MENU_EXIT = 2;
+	ListView listView;
+	private NewsCountReceiver mNewNewsCountReceiver;
+	private LayoutInflater mInflater;
+	private TimeLimeListView mListView;
+	private TextView mTitleView;
+	private ImageButton editView;
+	private ImageButton mBack;
+	private ImageView mHeadView;
+	private ImageView mTouXiangView;
+	private TextView mNewsNumLable;
+	private TextView mUserLable;
+	private TextView mFavorNum;
+	private TextView mFansNum;
+	private TextView mNewsNum;
+	private TextView mNewsCount;
+	private String mUid;
+	private String mUserName;
+	private String mImageId;
+	private String mType;
+	private String mSexInt;
+	private boolean isFromHome = true;
+	private int mPageIndex = 1;
+	private List<HomeData> mDataList;
+	private View mFooterView;
+	private LinearLayout mHeaderView;
+	private boolean isAttention = false;
+	UpdateCountReceiver mUpdateCountReceiver = new UpdateCountReceiver();
+	private UserInforUpdateReciever mUserInforUpdateReciever = new UserInforUpdateReciever();
+	ExitClentReceiver mExitClentReceiver = new ExitClentReceiver();
+	private Handler mHandler = new Handler();
+	LinearLayout mEmptyView;
+
+	public class UserInforUpdateReciever extends BroadcastReceiver {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String uid = intent.getStringExtra(LehuoIntent.USERINFOR_UID);
+			if (!TextUtils
+					.isEmpty(ApplicationManager.getInstance().getUserId())
+					&& !ApplicationManager.getInstance().getUserId()
+							.equals(uid)) {
+				mUserName = intent.getStringExtra(LehuoIntent.USERINFOR_NAME);
+				mImageId = intent.getStringExtra(LehuoIntent.USERINFOR_IMAGEID);
+				mSexInt = intent.getStringExtra(LehuoIntent.USERINFOR_SEXINT);
+				String relation = intent
+						.getStringExtra(LehuoIntent.USERINFOR_RELATION);
+				if (relation == null
+						|| PersonalInformationData.RELATION_STATUS_NOTHINE
+								.equals(relation)) {// TODO 关注
+					editView.setBackgroundResource(R.drawable.bt_off_switch_bg_seletor);
+					editView.setEnabled(true);
+					editView.setImageResource(R.drawable.image_off_switch);
+					isAttention = false;
+				} else if (PersonalInformationData.RELATION_STATUS_FOLLOW
+						.equals(relation)
+						|| PersonalInformationData.RELATION_STATUS_FANS_FOLLOW
+								.equals(relation)) {// TODO 取消关注
+					editView.setBackgroundResource(R.drawable.bt_on_switch_bg_seletor);
+					editView.setEnabled(true);
+					isAttention = true;
+					editView.setImageResource(R.drawable.image_on_switch);
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+//		setTheme(android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+		IntentFilter mIntentFilter = new IntentFilter();
+		mIntentFilter.addAction(LehuoIntent.ACTION_USERCOUNT_NEEDUPDATE);
+		IntentFilter mFilter = new IntentFilter();
+		mFilter.addAction(LehuoIntent.ACTION_EXIT_CLIENT);
+		registerReceiver(mExitClentReceiver, mFilter);
+		registerReceiver(mUpdateCountReceiver, mIntentFilter);
+		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction(LehuoIntent.ACTION_USERINFORMATION_UPDATE);
+		registerReceiver(mUserInforUpdateReciever, intentFilter);
+		registNewNewsCountReceiver();
+		IntentFilter mUpdateFeed = new IntentFilter();
+		mUpdateFeed.addAction(LehuoIntent.ACTION_OWN_FEED_DELETE);
+		// if (!ApplicationManager.getInstance().isLogin()) {
+		// Intent i = new Intent(this, LoginPage.class);
+		// i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		// startActivity(i);
+		// this.finish();
+		// return;
+		// }
+		setContentView(R.layout.information_personal_main);
+		initFromIntent(getIntent());
+		mInflater = LayoutInflater.from(this);
+		if (isFromHome) {
+			mUid = ApplicationManager.getInstance().getUserId();
+			// HintPageUtil.checkHint(HintPageUtil.HINT_USEREDIT, this,
+			// mHandler);
+		}
+		initView();
+		checkIfCountViewNeedShow();
+		loadUserData();
+		loadCountData();
+		loadFeedData(true);
+		toTopInit();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		if (mUid != ApplicationManager.getInstance().getUserId()) {
+			editView.setBackgroundDrawable(null);
+			searchRelation();
+		} else {
+			editView.setImageResource(0);
+			editView.setBackgroundResource(R.drawable.common_setting_selector);
+		}
+
+	}
+
+	private void checkIfCountViewNeedShow() {
+		boolean isSayMeShow = MoreUtil.readIsShowSayMeFromPref(this);
+		boolean isAddMeShow = MoreUtil.readIsShowAddMeFromPref(this);
+		boolean isFavShow = MoreUtil.readIsShowFavFromPref(this);
+		int list[] = NewsUtil.readNewCountFromPref(this);
+		int count = 0;
+		if (isAddMeShow) {
+			count += list[0];
+		}
+		if (isSayMeShow) {
+			count += list[1];
+		}
+		if (isFavShow) {
+			count += list[2];
+		}
+		if (mNewsCount != null && count != 0 && isFromHome) {
+			mNewsCount.setText(count > 99 ? "99+" : count + "");
+			mNewsCount.setVisibility(View.VISIBLE);
+		}
+
+	}
+
+	private void registNewNewsCountReceiver() {
+		mNewNewsCountReceiver = new NewsCountReceiver();
+		IntentFilter filter = new IntentFilter(
+				UpdateService.INTENT_NEW_NEWS_COUNT_CHANGE);
+		registerReceiver(mNewNewsCountReceiver, filter);
+	}
+
+	private class NewsCountReceiver extends BroadcastReceiver {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			boolean isSayMeShow = MoreUtil.readIsShowSayMeFromPref(context);
+			boolean isAddMeShow = MoreUtil.readIsShowAddMeFromPref(context);
+			boolean isFavShow = MoreUtil.readIsShowFavFromPref(context);
+			int count = 0;
+			if (UpdateService.INTENT_NEW_NEWS_COUNT_CHANGE.equals(intent
+					.getAction())) {
+				final int[] list = NewsUtil.readNewCountFromPref(context);
+				if (isAddMeShow) {
+					count += list[0];
+				}
+				if (isSayMeShow) {
+					count += list[1];
+				}
+				if (isFavShow) {
+					count += list[2];
+				}
+				final int total = count;
+				if (total != 0) {
+					mHandler.post(new Runnable() {
+						@Override
+						public void run() {
+							if (mNewsCount != null && isFromHome) {
+								mNewsCount.setText(total > 99 ? "99+" : total
+										+ "");
+								mNewsCount.setVisibility(View.VISIBLE);
+							}
+						}
+					});
+
+				} else {
+					mHandler.post(new Runnable() {
+						@Override
+						public void run() {
+							if (mNewsCount != null && isFromHome) {
+								mNewsCount.setVisibility(View.INVISIBLE);
+							}
+						}
+					});
+				}
+			}
+		}
+	}
+
+	private class ExitClentReceiver extends BroadcastReceiver {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			if (LehuoIntent.ACTION_EXIT_CLIENT.equals(intent.getAction())) {
+				PersonnalInforPage.this.finish();
+
+			}
+		}
+	}
+
+	private void initFeedListView() {
+		mInflater = LayoutInflater.from(this);
+		mHeaderView = (LinearLayout) mInflater.inflate(R.layout.feed_header,
+				null);
+		mFooterView = mInflater.inflate(R.layout.feed_footer, null);
+		listView = (ListView) findViewById(R.id.list);
+		mListView = new TimeLimeListView(listView, mHeaderView, mFooterView);
+		mListView.setOnScrollEndListener(this);
+		// listView.setOnItemClickListener(this);
+		mListView.setTapGestureRecognizeListener(this);
+		mProcessView = findViewById(R.id.progressBar);
+		mLoadView = listView;
+		showProgressView();
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		initFromIntent(getIntent());
+		if (isFromHome) {
+			mUid = ApplicationManager.getInstance().getUserId();
+		}
+		loadUserData();
+		loadCountData();
+		loadFeedData(true);
+	}
+
+	private void loadFeedData(boolean isRefreshOrGetMore) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put(SearchOwnFeedAction.PARAM_UID, mUid);
+		params.put(SearchOwnFeedAction.PARAM_PAGEINDEX, mPageIndex);
+		params.put(SearchOwnFeedAction.PARAM_REFRESH_OR_MORE,
+				isRefreshOrGetMore);
+		if (isRefreshOrGetMore && mListView.getData() != null
+				&& mListView.getData().size() > 0) {
+			mHandler.post(new Runnable() {
+				@Override
+				public void run() {
+					listView.setSelection(0);
+				}
+			});
+		}
+		ActionController.post(this, SearchOwnFeedAction.class, params,
+				new SearchOwnFeedAction.SearchOwnFeedResult() {
+
+					@Override
+					public void onStart() {
+
+					}
+
+					public void onFail(int resourceID) {
+						handlerCloserHeaderFooter();
+						showToast(PersonnalInforPage.this, resourceID);
+						hiddenProgressView();
+
+					}
+
+					@Override
+					public void onEnd(List<HomeData> feedData, int pageIndex) {
+						updateFeedViews((List<HomeData>) feedData, pageIndex);
+						hiddenProgressView();
+					}
+				}, true);
+	}
+
+	@Override
+	public void onScrollEnd() {
+		loadFeedData(false);
+	}
+
+	private long lastUpdataTime;
+
+	@Override
+	public void onScrollHeader() {
+		loadFeedData(true);
+	}
+
+	private TextView tipsTextview;
+	private TextView lastUpdatedTextView;
+	private ImageView arrowImageView;
+	private ProgressBar progressBar;
+	private RotateAnimation animation;
+	private RotateAnimation reverseAnimation;
+
+	private void toTopInit() {
+		arrowImageView = (ImageView) mHeaderView
+				.findViewById(R.id.head_arrowImageView);
+		progressBar = (ProgressBar) mHeaderView
+				.findViewById(R.id.head_progressBar);
+		tipsTextview = (TextView) mHeaderView
+				.findViewById(R.id.head_tipsTextView);
+		lastUpdatedTextView = (TextView) mHeaderView
+				.findViewById(R.id.head_lastUpdatedTextView);
+
+		animation = new RotateAnimation(0, -180,
+				RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+				RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+		animation.setInterpolator(new LinearInterpolator());
+		animation.setDuration(250);
+		animation.setFillAfter(true);
+
+		reverseAnimation = new RotateAnimation(-180, 0,
+				RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+				RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+		reverseAnimation.setInterpolator(new LinearInterpolator());
+		reverseAnimation.setDuration(200);
+		reverseAnimation.setFillAfter(true);
+	}
+
+	@Override
+	public void onTapGestureRecognizeListener(String[] str) {
+		if (str == null) {
+			return;
+		}
+		String postId = str[0];
+		String feedType = str[1];
+		Bundle bundle = new Bundle();
+		Class c = null;
+		// --------------------
+		if ("0".equals(feedType)) {
+			c = ContentOriginActivity.class;
+			bundle.putString(ContentOriginActivity.ORIGIN_FEED_ID, postId);// 源动态id
+		} else {
+			c = ContentTranspondActivity.class;
+			bundle.putString(ContentTranspondActivity.TRANSPOND_FEED_ID, postId);// 转发动态id
+		}
+		// --------------------
+		Intent intent = new Intent();
+		intent.putExtras(bundle);
+		intent.setClass(PersonnalInforPage.this, c);
+		startActivity(intent);
+	}
+
+	// @Override
+	// public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+	// long arg3) {
+	// if (mListView.getHeader() != null) {
+	// position -= 1;
+	// }
+	// int size = mDataList.size();
+	// if (position >= size) {
+	// return;
+	// }
+	// HomeData data = mDataList.get(position);
+	// Bundle bundle = new Bundle();
+	// Class c = null;
+	// // --------------------
+	// if ("0".equals(data.PublicUser.feedType)) {
+	// c = ContentOriginActivity.class;
+	// bundle.putString(ContentOriginActivity.ORIGIN_FEED_ID,
+	// data.PublicUser.postId);// 源动态id
+	// } else {
+	// c = ContentTranspondActivity.class;
+	// bundle.putString(ContentTranspondActivity.TRANSPOND_FEED_ID,
+	// data.PublicUser.postId);// 转发动态id
+	// }
+	// // --------------------
+	// Intent intent = new Intent();
+	// intent.putExtras(bundle);
+	// intent.setClass(this, c);
+	// startActivity(intent);
+	// }
+
+	private void loadCountData() {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put(SearchCountAction.KEY_UID, mUid);
+		ActionController.post(this, SearchCountAction.class, paramMap,
+				new SearchCountAction.ISearchCountResult() {
+					@Override
+					public void onEnd(ShowCountData showCountData) {
+						updateView(showCountData);
+					}
+
+					@Override
+					public void onStart() {
+
+					}
+
+					@Override
+					public void onFail(int resourceID) {
+						showToast(resourceID);
+					}
+				}, true);
+	}
+
+	private void loadUserData() {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put(SearchCountAction.KEY_UID, mUid);
+		ActionController.post(this, InitPersonalInfoAction.class, paramMap,
+				new InitPersonalInfoAction.IInitResult() {
+					@Override
+					public void onEnd(
+							final PersonalInformationData personalInformationData) {
+						mHandler.post(new Runnable() {
+							public void run() {
+								mTitleView.setText(personalInformationData
+										.getUserName());
+
+								mUserName = personalInformationData
+										.getUserName();
+								mImageId = personalInformationData
+										.getHeaderImageId();
+								mSexInt = personalInformationData.getSexInt();
+								mType = personalInformationData.getUserType();
+								if (!mUid.equals(ApplicationManager
+										.getInstance().getUserId())) {
+									if ("2".equals(mType)) {
+										mTouXiangView
+												.setImageResource(R.drawable.person_t);
+									} else if ("3".equals(mType)) {
+										mTouXiangView
+												.setImageResource(R.drawable.person_v);
+									} else {
+										mTouXiangView
+												.setImageResource(R.drawable.touxiang_info);
+									}
+
+								} else {
+									mTouXiangView
+											.setImageResource(R.drawable.touxiang_edit);
+								}
+								if (personalInformationData.getIntroduce() != null
+										&& personalInformationData
+												.getIntroduce().trim().length() > 0) {
+									mUserLable.setText(personalInformationData
+											.getIntroduce());
+								} else if (!TextUtils
+										.isEmpty(ApplicationManager
+												.getInstance().getUserId())
+										&& ApplicationManager.getInstance()
+												.getUserId().equals(mUid)) {
+									mUserLable.setText(R.string.personal_no);
+								} else if (PersonalInformationData.SEX_WOMAN
+										.equals(mSexInt)) {
+									mUserLable
+											.setText(R.string.personal_she_no);
+								} else {
+									mUserLable.setText(R.string.personal_he_no);
+								}
+								// --------------------------------
+								int defaultHeaderRes = R.drawable.head_men;
+								String sex = personalInformationData
+										.getSexInt();
+								if (PersonalInformationData.SEX_WOMAN
+										.equals(sex)) {
+									defaultHeaderRes = R.drawable.head_women;
+								}
+								ImageUtil.setHeaderImageView(
+										PersonnalInforPage.this, mHeadView,
+										personalInformationData
+												.getHeaderImageId(),
+										defaultHeaderRes);
+							}
+						});
+					}
+
+					@Override
+					public void onStart() {
+
+					}
+
+					@Override
+					public void onFail(int resourceID) {
+						showToast(resourceID);
+					}
+
+					@Override
+					public void onShowMessage(int res) {
+						showToast(res);
+					}
+				}, true);
+	}
+
+	private void updateView(final ShowCountData showCountData) {
+		mHandler.post(new Runnable() {
+			@Override
+			public void run() {
+				mFavorNum.setText(String.valueOf(showCountData.getFavorCount()));
+				mFansNum.setText(String.valueOf(showCountData.getFansCount()));
+				if (isFromHome) {
+					mNewsNum.setText(String.valueOf(showCountData
+							.getNewsCount()));
+				} else {
+					mNewsNum.setText(String.valueOf(showCountData
+							.getAttentCount()));
+				}
+			}
+		});
+	}
+
+	private void initFromIntent(Intent intent) {
+		mUid = intent.getStringExtra(KEY_USER_ID);
+		isFromHome = intent.getBooleanExtra(KEY_FROM_HOME, false);
+	}
+
+	private void initView() {
+		mTitleView = (TextView) findViewById(R.id.title);
+		mTouXiangView = (ImageView) findViewById(R.id.touxiang_info);
+		if (mUid.equals(ApplicationManager.getInstance().getUserId())) {
+			mTouXiangView.setImageResource(R.drawable.touxiang_edit);
+		}
+		mEmptyView = (LinearLayout) findViewById(R.id.empty_view);
+		mEmptyView.findViewById(R.id.wxcb_empty_btn).setVisibility(View.GONE);
+		editView = (ImageButton) findViewById(R.id.send);
+		mBack = (ImageButton) findViewById(R.id.back);
+		mBack.setOnClickListener(this);
+		editView.setOnClickListener(this);
+		mHeadView = (ImageView) findViewById(R.id.header_image);
+		mHeadView.setOnClickListener(this);
+		mUserLable = (TextView) findViewById(R.id.user_lable);
+		mUserLable.setOnClickListener(this);
+		mFavorNum = (TextView) findViewById(R.id.favor_num);
+		findViewById(R.id.favor_id).setOnClickListener(this);
+		mFansNum = (TextView) findViewById(R.id.fans_num);
+		findViewById(R.id.fans_id).setOnClickListener(this);
+		mNewsNum = (TextView) findViewById(R.id.news_num);
+		mNewsNumLable = (TextView) findViewById(R.id.news_lable);
+		mNewsCount = (TextView) findViewById(R.id.news_count_view);
+		findViewById(R.id.news_id).setOnClickListener(this);
+		if (isFromHome) {
+			mBack.setVisibility(View.GONE);
+			mNewsNumLable.setText("消息");
+		} else {
+			mNewsNumLable.setText("关注");
+		}
+		initFeedListView();
+	}
+
+	private void searchRelation() {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put(InitPersonalInfoAction.KEY_UID, mUid);
+		ActionController.post(this, InitPersonalInfoAction.class, paramMap,
+				new InitPersonalInfoAction.IInitResult() {
+					@Override
+					public void onEnd(
+							PersonalInformationData personalInformationData) {
+						Intent intent = new Intent(
+								LehuoIntent.ACTION_USERINFORMATION_UPDATE);
+						intent.putExtra(LehuoIntent.USERINFOR_UID, mUid);
+						intent.putExtra(LehuoIntent.USERINFOR_RELATION,
+								personalInformationData.getRelationStatus());// TODO
+																				// 关系·
+						intent.putExtra(LehuoIntent.USERINFOR_NAME,
+								personalInformationData.getUserName());
+						intent.putExtra(LehuoIntent.USERINFOR_SEXINT,
+								personalInformationData.getSexInt());
+						intent.putExtra(LehuoIntent.USERINFOR_IMAGEID,
+								personalInformationData.getHeaderImageId());
+						sendBroadcast(intent);
+					}
+
+					@Override
+					public void onShowMessage(int resourceID) {
+						showToast(resourceID);
+					}
+
+					@Override
+					public void onStart() {
+
+					}
+
+					@Override
+					public void onFail(int resourceID) {
+						showToast(resourceID);
+					}
+				}, true);
+	}
+
+	private void startFavorActivity() {
+		Intent intent = new Intent(this, EnjoyFeedPage.class);
+		intent.putExtra(UserInfoPage.KEY_UID, mUid);
+		intent.putExtra(KEY_USER_NAME, mTitleView.getText());
+		intent.putExtra(EXTRA_REGISTER_REFRESH, true);
+		startActivity(intent);
+	}
+
+	private void startFansActivity() {
+		Intent intent = new Intent(this, AttentUserListPage.class);
+		intent.putExtra(AttentUserListPage.KEY_UID, mUid);
+		intent.putExtra(AttentUserListPage.KEY_ATTENT_TYPE,
+				AttentUserListPage.ATTENT_TYPE_FANS);
+		intent.putExtra(UserInfoPage.KEY_UID, mUid);
+		intent.putExtra(KEY_USER_NAME, mTitleView.getText());
+		intent.putExtra(EXTRA_REGISTER_REFRESH, true);
+		startActivity(intent);
+	}
+
+	private void startUserInfoActivity() {
+		Intent intent = new Intent();
+		if (isFromHome
+				|| (!TextUtils.isEmpty(ApplicationManager.getInstance()
+						.getUserId()) && ApplicationManager.getInstance()
+						.getUserId().equals(mUid))) {
+			intent.setClass(this, PersonalEditPage.class);
+		} else {
+			intent.setClass(this, UserInfoPage.class);
+			intent.putExtra(KEY_USER_NAME, mTitleView.getText());
+			intent.putExtra(UserInfoPage.KEY_UID, mUid);
+		}
+		intent.putExtra(KEY_USER_ID, mUid);
+		startActivity(intent);
+	}
+
+	private void startNewsActivity() {
+		Intent intent = new Intent();
+		if (isFromHome) {
+			intent.setClass(this, NewsMainPage.class);
+		} else {
+			intent.setClass(this, AttentUserListPage.class);
+			intent.putExtra(AttentUserListPage.KEY_UID, mUid);
+			intent.putExtra(AttentUserListPage.KEY_ATTENT_TYPE,
+					AttentUserListPage.ATTENT_TYPE_ATTENT);
+			intent.putExtra(KEY_USER_NAME, mTitleView.getText());
+		}
+
+		startActivity(intent);
+	}
+
+	protected void showToast(final int resourceID) {
+		showToast(getString(resourceID));
+	}
+
+	protected void showToast(final String str) {
+		mHandler.post(new Runnable() {
+			@Override
+			public void run() {
+				Toast.makeText(PersonnalInforPage.this, str, Toast.LENGTH_SHORT)
+						.show();
+			}
+		});
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.back:
+			finish();
+			break;
+		case R.id.send:
+			if (isFromHome) {
+				startSettingActivity();
+			} else {
+				if (isAttention) {
+					operateAttent(false);
+				} else {
+					operateAttent(true);
+				}
+				break;
+			}
+			break;
+		case R.id.header_image:
+			startUserInfoActivity();
+			break;
+		case R.id.favor_id:
+			startFavorActivity();
+			break;
+		case R.id.fans_id:
+			startFansActivity();
+			break;
+		case R.id.news_id:
+			startNewsActivity();
+			break;
+		}
+	}
+
+	private void startSettingActivity() {
+		Intent intent = new Intent(this, MoreMainPage.class);
+		intent.putExtra(PersonalEditPage.KEY_UID, mUid);
+		startActivity(intent);
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		unregisterReceiver(mExitClentReceiver);
+		unregisterReceiver(mUpdateCountReceiver);
+		unregisterReceiver(mNewNewsCountReceiver);
+		unregisterReceiver(mUserInforUpdateReciever);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		if (!isFromHome) {
+			MenuItem m = null;
+			m = menu.add(Menu.NONE, MENU_BACK, 0,
+					getResources().getString(R.string.feed_back_home));
+			m.setIcon(R.drawable.menum_home);
+			m = menu.add(Menu.NONE, MENU_EXIT, 0,
+					getResources().getString(R.string.feed_exit));
+			m.setIcon(R.drawable.menum_exit);
+		}
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case MENU_BACK:
+			Intent intent = new Intent();
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.setClass(this, LehoTabActivity.class);
+			startActivity(intent);
+			break;
+		case MENU_EXIT:
+			intent = new Intent();
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.setClass(this, ExitPage.class);
+			startActivity(intent);
+			break;
+		}
+		return true;
+	}
+
+	private void handlerCloserHeaderFooter() {
+		mHandler.post(new Runnable() {
+			@Override
+			public void run() {
+				mListView.closeHeaderFooter();
+			}
+		});
+	}
+
+	private void updateFeedViews(final List<HomeData> feedDataList,
+			final int pageIndex) {
+		mPageIndex = pageIndex;
+		mHandler.post(new Runnable() {
+			public void run() {
+				mListView.closeHeaderFooter();
+				if (pageIndex == 1) {// 刷新
+					mDataList = feedDataList;
+					if (mDataList == null || mDataList.size() == 0) {
+						((TextView) mEmptyView.findViewById(R.id.wxcb_tishi))
+								.setText(PersonnalInforPage.this
+										.getString(R.string.no_self_publish));
+						mEmptyView.setVisibility(View.VISIBLE);
+						listView.setVisibility(View.GONE);
+					} else {
+						mEmptyView.setVisibility(View.GONE);
+						listView.setVisibility(View.VISIBLE);
+						mListView.setData(mDataList,
+								PageSize.INFO_FEED_PAGESIZE);
+					}
+
+				} else {
+					if (feedDataList != null) {
+						mListView.addData(feedDataList,
+								PageSize.INFO_FEED_PAGESIZE);
+					} else {
+						mListView.addData(new ArrayList<HomeData>(),
+								PageSize.INFO_FEED_PAGESIZE);
+					}
+				}
+			}
+		});
+	}
+
+	private void operateAttent(final boolean isAddAttent) {
+		// AddCancelAttentAction
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put(AddCancelAttentAction.KEY_FOLLOW_UID, mUid);
+		if (isAddAttent) {
+			paramMap.put(AddCancelAttentAction.KEY_OPERATE_TYPE,
+					AddCancelAttentAction.TYPE_ADD);
+			paramMap.put(AddCancelAttentAction.KEY_ADD_IMAGEID, mImageId);
+			paramMap.put(AddCancelAttentAction.KEY_ADD_SEXINT, mSexInt);
+			paramMap.put(AddCancelAttentAction.KEY_ADD_UNAME, mUserName);
+		} else {
+			paramMap.put(AddCancelAttentAction.KEY_OPERATE_TYPE,
+					AddCancelAttentAction.TYPE_CANCEL);
+		}
+		ActionController.post(this, AddCancelAttentAction.class, paramMap,
+				new AddCancelAttentAction.IOperateResult() {
+					@Override
+					public void onEnd(boolean flag) {
+						handlerChangeRightButtonShow(isAddAttent);
+						sendBroadcast(new Intent(
+								LehuoIntent.ACTION_USERCOUNT_NEEDUPDATE));
+						isAttention = isAddAttent;
+					}
+
+					@Override
+					public void onStart() {
+
+					}
+
+					@Override
+					public void onFail(int resourceID) {
+						showToast(resourceID);
+					}
+				}, true);
+	}
+
+	private void handlerChangeRightButtonShow(final boolean flag) {
+		mHandler.post(new Runnable() {
+			public void run() {
+				if (flag) {
+					editView.setBackgroundResource(R.drawable.bt_on_switch_bg_seletor);
+					editView.setImageResource(R.drawable.image_on_switch);
+				} else {
+					editView.setBackgroundResource(R.drawable.bt_off_switch_bg_seletor);
+					editView.setImageResource(R.drawable.image_off_switch);
+				}
+			}
+		});
+	}
+}

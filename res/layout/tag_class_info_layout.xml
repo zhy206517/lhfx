@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tag_info_area"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/jingxuan_item_bg"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
+
+    <RelativeLayout
+        android:id="@+id/class_titile"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/taginfo_title_bg_selector" >
+
+        <TextView
+            android:id="@+id/class_name"
+            style="@style/title_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/size_17"
+            android:gravity="center_vertical"
+            android:textColor="@color/tagtextcolor" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/class_name"
+            android:contentDescription="@string/img"
+            android:src="@drawable/taginfo_title_arrow" />
+    </RelativeLayout>
+
+    <TableLayout
+        android:id="@+id/tag_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/class_titile"
+        android:layout_alignParentTop="true" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:id="@+id/tag1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding=".5dp"
+                android:visibility="invisible" >
+
+                <ImageView
+                    android:id="@+id/tag1_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/img"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tag1_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#50000000"
+                    android:gravity="left"
+                    android:lines="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textColor="#FFFFFFFF" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/tag2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding=".5dp"
+                android:visibility="invisible" >
+
+                <ImageView
+                    android:id="@+id/tag2_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/img"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tag2_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#50000000"
+                    android:gravity="left"
+                    android:lines="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textColor="#FFFFFFFF" />
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <RelativeLayout
+                android:id="@+id/tag3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding=".5dp"
+                android:visibility="invisible" >
+
+                <ImageView
+                    android:id="@+id/tag3_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/img"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tag3_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#50000000"
+                    android:gravity="left"
+                    android:lines="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textColor="#FFFFFFFF" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/tag4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding=".5dp"
+                android:visibility="invisible" >
+
+                <ImageView
+                    android:id="@+id/tag4_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/img"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/tag4_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#50000000"
+                    android:gravity="left"
+                    android:lines="1"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:textColor="#FFFFFFFF" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center_horizontal"
+    android:paddingBottom="3dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="4dp" >
+
+    <!-- <LinearLayout -->
+    <!-- android:id="@+id/head_location_layout" -->
+    <!-- android:layout_width="fill_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:gravity="center" -->
+    <!-- android:orientation="horizontal" > -->
+
+
+    <!-- <ImageView -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:contentDescription="@string/img" -->
+    <!-- android:scaleType="center" -->
+    <!-- android:src="@drawable/location_hit" /> -->
+
+    <TextView
+        android:id="@+id/location_lable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/location_hit"
+        android:drawablePadding="5dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/locating" />
+    <!-- </LinearLayout> -->
+
+    <FrameLayout
+        android:id="@+id/circum_item_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:foreground="@drawable/waterfall_img_shadow" >
+
+        <ImageView
+            android:id="@+id/item_0_img"
+            android:layout_width="300dp"
+            android:layout_height="226dp"
+            android:background="@drawable/img_bg"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/item_0_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/feed_waterfall_content_bg"
+            android:gravity="left" >
+
+            <ImageView
+                android:id="@+id/item_0_user_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/img"
+                android:scaleType="fitXY"
+                android:src="@drawable/head_men" />
+
+            <TextView
+                android:id="@+id/item_0_shopstore_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_0_user_header"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+
+            <TextView
+                android:id="@+id/item_0_shopstore_from_here"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item_0_shopstore_place"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_0_user_header"
+                android:gravity="top"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+        </RelativeLayout>
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/item_0_shadow" -->
+        <!-- android:layout_width="300dp" -->
+        <!-- android:layout_height="226dp" -->
+        <!-- android:contentDescription="@string/img" -->
+        <!-- android:scaleType="fitXY" -->
+        <!-- android:src="@drawable/waterfall_img_shadow" /> -->
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/circum_item_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/circum_item_0"
+        android:layout_below="@+id/circum_item_0"
+        android:layout_marginTop="6dp"
+        android:foreground="@drawable/waterfall_img_shadow" >
+
+        <ImageView
+            android:id="@+id/item_1_img"
+            android:layout_width="146.67dp"
+            android:layout_height="112.67dp"
+            android:background="@drawable/img_bg"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/item_1_layout"
+            android:layout_width="146.67dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/feed_waterfall_content_bg"
+            android:gravity="left" >
+
+            <ImageView
+                android:id="@+id/item_1_user_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/img"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/item_1_shopstore_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_1_user_header"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+
+            <TextView
+                android:id="@+id/item_1_shopstore_from_here"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item_1_shopstore_place"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_1_user_header"
+                android:gravity="top"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+        </RelativeLayout>
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/item_1_shadow" -->
+        <!-- android:layout_width="146.67dp" -->
+        <!-- android:layout_height="112.67dp" -->
+        <!-- android:contentDescription="@string/img" -->
+        <!-- android:scaleType="fitXY" -->
+        <!-- android:src="@drawable/waterfall_img_shadow" /> -->
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/circum_item_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/circum_item_0"
+        android:layout_below="@+id/circum_item_0"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:foreground="@drawable/waterfall_img_shadow" >
+
+        <ImageView
+            android:id="@+id/item_2_img"
+            android:layout_width="146.67dp"
+            android:layout_height="112.67dp"
+            android:background="@drawable/img_bg"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/item_2_layout"
+            android:layout_width="146.67dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/feed_waterfall_content_bg"
+            android:gravity="left" >
+
+            <ImageView
+                android:id="@+id/item_2_user_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/img"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/item_2_shopstore_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_2_user_header"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+
+            <TextView
+                android:id="@+id/item_2_shopstore_from_here"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item_2_shopstore_place"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_2_user_header"
+                android:gravity="top"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+        </RelativeLayout>
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/item_2_shadow" -->
+        <!-- android:layout_width="146.67dp" -->
+        <!-- android:layout_height="112.67dp" -->
+        <!-- android:contentDescription="@string/img" -->
+        <!-- android:scaleType="fitXY" -->
+        <!-- android:src="@drawable/waterfall_img_shadow" /> -->
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/circum_item_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/circum_item_0"
+        android:layout_below="@+id/circum_item_1"
+        android:layout_marginTop="6dp"
+        android:foreground="@drawable/waterfall_img_shadow" >
+
+        <ImageView
+            android:id="@+id/item_3_img"
+            android:layout_width="146.67dp"
+            android:layout_height="226dp"
+            android:background="@drawable/img_bg"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/item_3_layout"
+            android:layout_width="146.67dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/feed_waterfall_content_bg"
+            android:gravity="left" >
+
+            <ImageView
+                android:id="@+id/item_3_user_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/img"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/item_3_shopstore_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_3_user_header"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+
+            <TextView
+                android:id="@+id/item_3_shopstore_from_here"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item_3_shopstore_place"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_3_user_header"
+                android:gravity="center_vertical"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+        </RelativeLayout>
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/item_3_shadow" -->
+        <!-- android:layout_width="146.67dp" -->
+        <!-- android:layout_height="226dp" -->
+        <!-- android:contentDescription="@string/img" -->
+        <!-- android:scaleType="fitXY" -->
+        <!-- android:src="@drawable/waterfall_img_shadow" /> -->
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/circum_item_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/circum_item_0"
+        android:layout_below="@+id/circum_item_2"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:foreground="@drawable/waterfall_img_shadow" >
+
+        <ImageView
+            android:id="@+id/item_4_img"
+            android:layout_width="146.67dp"
+            android:layout_height="112.67dp"
+            android:background="@drawable/img_bg"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/item_4_layout"
+            android:layout_width="146.67dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/feed_waterfall_content_bg"
+            android:gravity="left" >
+
+            <ImageView
+                android:id="@+id/item_4_user_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/img"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/item_4_shopstore_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_4_user_header"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+
+            <TextView
+                android:id="@+id/item_4_shopstore_from_here"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item_4_shopstore_place"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_4_user_header"
+                android:gravity="top"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+        </RelativeLayout>
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/item_4_shadow" -->
+        <!-- android:layout_width="146.67dp" -->
+        <!-- android:layout_height="112.67dp" -->
+        <!-- android:contentDescription="@string/img" -->
+        <!-- android:scaleType="fitXY" -->
+        <!-- android:src="@drawable/waterfall_img_shadow" /> -->
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/circum_item_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/circum_item_0"
+        android:layout_below="@+id/circum_item_4"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:foreground="@drawable/waterfall_img_shadow" >
+
+        <ImageView
+            android:id="@+id/item_5_img"
+            android:layout_width="146.67dp"
+            android:layout_height="226dp"
+            android:background="@drawable/img_bg"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/item_5_layout"
+            android:layout_width="146.67dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/feed_waterfall_content_bg"
+            android:gravity="left" >
+
+            <ImageView
+                android:id="@+id/item_5_user_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/img"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/item_5_shopstore_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_5_user_header"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+
+            <TextView
+                android:id="@+id/item_5_shopstore_from_here"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item_5_shopstore_place"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_5_user_header"
+                android:gravity="top"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+        </RelativeLayout>
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/item_5_shadow" -->
+        <!-- android:layout_width="146.67dp" -->
+        <!-- android:layout_height="226dp" -->
+        <!-- android:contentDescription="@string/img" -->
+        <!-- android:scaleType="fitXY" -->
+        <!-- android:src="@drawable/waterfall_img_shadow" /> -->
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/circum_item_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/circum_item_0"
+        android:layout_below="@+id/circum_item_3"
+        android:layout_marginTop="6dp"
+        android:foreground="@drawable/waterfall_img_shadow" >
+
+        <ImageView
+            android:id="@+id/item_6_img"
+            android:layout_width="146.67dp"
+            android:layout_height="112.67dp"
+            android:background="@drawable/img_bg"
+            android:contentDescription="@string/img"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:id="@+id/item_6_layout"
+            android:layout_width="146.67dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/feed_waterfall_content_bg"
+            android:gravity="left" >
+
+            <ImageView
+                android:id="@+id/item_6_user_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/img"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/item_6_shopstore_place"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_6_user_header"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+
+            <TextView
+                android:id="@+id/item_6_shopstore_from_here"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/item_6_shopstore_place"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/item_6_user_header"
+                android:gravity="top"
+                android:textColor="@color/feed_waterfall_content"
+                android:textSize="@dimen/size_12" />
+        </RelativeLayout>
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/item_6_shadow" -->
+        <!-- android:layout_width="146.67dp" -->
+        <!-- android:layout_height="112.67dp" -->
+        <!-- android:contentDescription="@string/img" -->
+        <!-- android:scaleType="fitXY" -->
+        <!-- android:src="@drawable/waterfall_img_shadow" /> -->
+    </FrameLayout>
+
+</RelativeLayout>

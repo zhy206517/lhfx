@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- feed title total -->
+	<style name="title_total">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">@dimen/title_bar_height</item>
+		<item name="android:background">@drawable/feed_title</item>
+		<item name="android:paddingLeft">8dip</item>
+		<item name="android:paddingRight">8dip</item>
+		<item name="android:gravity">center_vertical</item>
+	</style>
+	<!-- feed title left -->
+	<style name="title_left">
+		<item name="android:layout_width">36dip</item>
+		<item name="android:layout_height">32dip</item>
+		<item name="android:clickable">true</item>
+		<item name="android:src">@drawable/feed_refresh</item>
+		<item name="android:background">@drawable/feed_title_button_bg</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_alignParentLeft">true</item>
+		<item name="android:focusable">true</item>
+		<item name="android:focusableInTouchMode">true</item>
+	</style>
+	<!-- feed title middle -->
+	<style name="title_middle">
+		<item name="android:layout_width">200dip</item>
+		<item name="android:layout_height">35dip</item>
+		<!--<item name="android:button">@null</item> <item name="android:textStyle">bold</item> -->
+		<item name="android:paddingTop">2dip</item>
+		<item name="android:paddingBottom">2dip</item>
+		<item name="android:paddingLeft">6dip</item>
+		<item name="android:paddingRight">6dip</item>
+		<item name="android:textSize">@dimen/size_20</item>
+		<item name="android:textColor">#494442</item>
+		<item name="android:gravity">center</item>
+		<item name="android:focusable">true</item>
+		<item name="android:focusableInTouchMode">true</item>
+		<!-- <item name="android:clickable">true</item> -->
+		<item name="android:singleLine">true</item>
+		<item name="android:layout_weight">1.0</item>
+		<item name="android:shadowColor">#FFFFFF</item>
+		<item name="android:shadowDx">1</item>
+		<item name="android:shadowDy">1</item>
+		<item name="android:shadowRadius">0.1</item>
+	</style>
+	<style name="tag_title_stytle">
+		<item name="android:textSize">@dimen/size_20</item>
+		<item name="android:textColor">#858585</item>
+		<item name="android:gravity">center</item>
+		<item name="android:focusable">true</item>
+		<item name="android:focusableInTouchMode">true</item>
+		<!-- <item name="android:clickable">true</item> -->
+		<item name="android:singleLine">true</item>
+		<item name="android:layout_weight">1.0</item>
+		<item name="android:shadowColor">#FFFFFF</item>
+		<item name="android:shadowDx">1</item>
+		<item name="android:shadowDy">1</item>
+		<item name="android:shadowRadius">0.1</item>
+	</style>
+	<style name="tag_name_stytle">
+		<item name="android:textSize">@dimen/size_16</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center</item>
+		<item name="android:focusable">true</item>
+		<item name="android:paddingLeft">2dip</item>
+		<item name="android:paddingRight">2dip</item>
+		<item name="android:singleLine">true</item>
+	</style>
+	<!-- feed title right -->
+	<style name="title_right">
+		<item name="android:layout_width">36dip</item>
+		<item name="android:layout_height">32dip</item>
+		<item name="android:src">@drawable/feed_edit</item>
+		<item name="android:background">@drawable/feed_title_button_bg</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_alignParentRight">true</item>
+		<item name="android:focusable">true</item>
+		<item name="android:focusableInTouchMode">true</item>
+		<item name="android:textColor">#ffffff</item>
+	</style>
+	<!-- feed content -->
+
+	<style name="feed_bg">
+		<item name="android:background">@drawable/life_bg_bit</item>
+	</style>
+	<style name="user_name">
+		<item name="android:textSize">@dimen/size_17</item>
+		<item name="android:textColor">#858585</item>
+	</style>
+	<style name="time">
+		<item name="android:textSize">@dimen/size_13</item>
+		<item name="android:textColor">#858585</item>
+		<item name="android:layout_alignParentRight">true</item>
+	</style>
+	<style name="line">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:text">" "</item>
+		<item name="android:layout_height">@dimen/feed_dot_line</item>
+		<item name="android:background">@drawable/feed_dotted_line</item>
+		<item name="android:layout_marginTop">3dip</item>
+		<item name="android:layout_marginBottom">3dip</item>
+	</style>
+	<style name="content">
+		<item name="android:textSize">@dimen/size_15</item>
+		<item name="android:textColor">#555245</item>
+	</style>
+	<style name="feed_commerial">
+		<item name="android:textSize">@dimen/size_15</item>
+		<item name="android:layout_marginLeft">3dip</item>
+	</style>
+	<!-- ==正文 tile== -->
+	<style name="content_title">
+		<item name="android:textSize">@dimen/size_20</item>
+		<item name="android:textColor">#FFFFFFFF</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	<style name="bottom_text">
+		<item name="android:textSize">@dimen/time_size</item>
+		<item name="android:textColor">#a9a9a9</item>
+		<item name="android:layout_marginLeft">2dip</item>
+		<item name="android:layout_marginRight">6dip</item>
+		<item name="android:gravity">center</item>
+	</style>
+	<style name="information_top_radio">
+		<item name="android:layout_marginTop">6dip</item>
+		<item name="android:textSize">@dimen/information_content_size</item>
+		<item name="android:textColor">@color/information_black</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center</item>
+		<item name="android:button">@null</item>
+		<item name="android:background">@null</item>
+	</style>
+	<style name="information_top_radio_count">
+		<item name="android:layout_marginTop">2dip</item>
+		<item name="android:textSize">@dimen/information_subcontent_size</item>
+		<item name="android:textColor">@color/information_gray</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center</item>
+		<item name="android:button">@null</item>
+		<item name="android:background">@null</item>
+	</style>
+	<!-- feed pop item -->
+	<style name="pop_item">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">44dip</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:textSize">@dimen/size_16</item>
+		<item name="android:textColor">#FFFFFFFF</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:layout_alignParentLeft">true</item>
+		<item name="android:layout_centerVertical">true</item>
+		<item name="android:ellipsize">marquee</item>
+	</style>
+
+	<style name="main_tab_bottom">
+		<item name="android:textSize">@dimen/size_20</item>
+		<item name="android:textColor">#ffffffff</item>
+		<item name="android:ellipsize">marquee</item>
+		<item name="android:gravity">center_horizontal</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:button">@null</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:layout_weight">1.0</item>
+	</style>
+	<!-- ==========================news=============news=============news=========news=============== -->
+	<!-- news top radio -->
+	<style name="news_top_radio">
+		<item name="android:paddingLeft">6dip</item>
+		<item name="android:paddingRight">6dip</item>
+		<item name="android:paddingTop">2dip</item>
+		<item name="android:paddingBottom">2dip</item>
+		<item name="android:textColor">#97928C</item>
+		<item name="android:gravity">center</item>
+		<item name="android:ellipsize">marquee</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:button">@null</item>
+		<item name="android:layout_weight">1.0</item>
+		<item name="android:shadowColor">#FFFFFF</item>
+		<item name="android:shadowDx">1</item>
+		<item name="android:shadowDy">1</item>
+		<item name="android:shadowRadius">0.1</item>
+	</style>
+	<style name="wenxin_share_radio">
+		<item name="android:paddingTop">2dip</item>
+		<item name="android:paddingBottom">2dip</item>
+		<item name="android:paddingLeft">6dip</item>
+		<item name="android:paddingRight">6dip</item>
+		<item name="android:textSize">@dimen/size_18</item>
+		<item name="android:textColor">#494442</item>
+		<item name="android:gravity">center</item>
+		<item name="android:ellipsize">marquee</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">40dp</item>
+		<item name="android:button">@null</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:shadowColor">#FFFFFF</item>
+		<item name="android:shadowDx">1</item>
+		<item name="android:shadowDy">1</item>
+		<item name="android:shadowRadius">0.1</item>
+	</style>
+	<!-- news new count -->
+	<style name="news_new_count">
+		<item name="android:textSize">12dp</item>
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">21dp</item>
+		<item name="android:paddingBottom">3dp</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:layout_marginTop">3dp</item>
+	</style>
+	<!-- news like line -->
+	<style name="news_like_line">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:text">" "</item>
+		<item name="android:layout_height">1dip</item>
+		<item name="android:background">@drawable/feed_dotted_line</item>
+		<item name="android:layout_marginTop">4dip</item>
+		<item name="android:layout_marginBottom">6dip</item>
+	</style>
+	<!-- ==========================news=============news=============news=========news=============== -->
+
+	<!-- ======================input=============input=============input=========input=============== -->
+
+	<!-- input title -->
+	<style name="input_title_left_button">
+		<item name="android:layout_width">36dp</item>
+		<item name="android:layout_height">32dp</item>
+		<item name="android:clickable">true</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_alignParentLeft">true</item>
+		<item name="android:src">@drawable/ic_back</item>
+		<item name="android:shadowColor">#ff466116</item>
+		<item name="android:shadowDx">-1</item>
+		<item name="android:shadowDy">-1</item>
+		<item name="android:shadowRadius">0.1</item>
+	</style>
+	<style name="input_title_text">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:paddingTop">2dip</item>
+		<item name="android:paddingBottom">2dip</item>
+		<item name="android:textSize">@dimen/size_20</item>
+		<item name="android:textColor">#494442</item> 
+		<item name="android:gravity">center</item>
+		<item name="android:maxWidth">180dp</item>
+		<item name="android:shadowColor">#FFFFFF</item>
+		<item name="android:shadowDx">1</item>
+		<item name="android:shadowDy">1</item>
+		<item name="android:shadowRadius">0.1</item>
+		<item name="android:singleLine">true</item>
+	</style>
+	<style name="input_title_right_button">
+		<item name="android:layout_width">36dp</item>
+		<item name="android:layout_height">32dp</item>
+		<item name="android:textSize">13sp</item>
+		<item name="android:clickable">true</item>
+		<item name="android:gravity">center</item>
+		<item name="android:layout_alignParentRight">true</item>
+		<item name="android:shadowColor">#ff466116</item>
+		<item name="android:shadowDx">-1</item>
+		<item name="android:shadowDy">-1</item>
+		<item name="android:shadowRadius">0.1</item>
+	</style>
+	<!-- input title -->
+
+	<!-- input face -->
+	<style name="input_face_view">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">200dp</item>
+		<item name="android:verticalSpacing">5dp</item>
+		<item name="android:horizontalSpacing">5dp</item>
+		<item name="android:numColumns">auto_fit</item>
+		<item name="android:columnWidth">35dp</item>
+		<item name="android:stretchMode">columnWidth</item>
+		<item name="android:gravity">center</item>
+	</style>
+	<!-- input face -->
+
+	<!-- input left words -->
+	<style name="input_left_words">
+		<item name="android:background">@drawable/input_left_words_bg</item>
+		<item name="android:layout_alignParentRight">true</item>
+		<item name="android:layout_alignParentBottom">true</item>
+		<item name="android:layout_marginRight">2dp</item>
+		<item name="android:gravity">center</item>
+		<item name="android:paddingRight">1dp</item>
+		<item name="android:textColor">#979797</item>
+		<item name="android:textSize">13sp</item>
+	</style>
+	<!-- input words -->
+
+	<style name="input_title">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:background">@drawable/feed_title</item>
+		<item name="android:paddingLeft">12dip</item>
+		<item name="android:paddingRight">12dip</item>
+		<item name="android:gravity">center_vertical</item>
+	</style>
+	<!-- input tool button -->
+	<style name="input_tool_button">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:clickable">true</item>
+	</style>
+	<!-- input publish edit -->
+	<style name="publish_edit">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:hint">@string/publish_edit_default</item>
+		<item name="android:textSize">17sp</item>
+		<item name="android:textColor">#000000</item>
+		<item name="android:background">@null</item>
+		<item name="android:lineSpacingExtra">6dp</item>
+		<item name="android:gravity">top</item>
+		<item name="android:layout_marginTop">46dp</item>
+		<item name="android:paddingTop">6dp</item>
+		<item name="android:paddingLeft">12dp</item>
+		<item name="android:paddingRight">12dp</item>
+		<item name="android:textColorHint">#aaaaaa</item>
+	</style>
+	<!-- input publish tool bgs -->
+	<style name="pubish_tool_bg">
+		<item name="android:background">@drawable/input_toolbar_bg</item>
+	</style>
+	<style name="comment_tool_bg">
+		<item name="android:background">@drawable/input_comment_toolbar_bg</item>
+	</style>
+	<!-- input publish tool button -->
+	<style name="publish_tool_button">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:clickable">true</item>
+	</style>
+	<!-- input comment tool button -->
+	<style name="comment_tool_button">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:paddingBottom">4dip</item>
+		<item name="android:clickable">true</item>
+		<item name="android:layout_alignParentBottom">true</item>
+	</style>
+	<!-- input comment tool line -->
+	<style name="comment_tool_line">
+		<item name="android:layout_width">2dip</item>
+		<item name="android:text">""</item>
+		<item name="android:layout_centerInParent">true</item>
+		<item name="android:layout_height">32dp</item>
+		<item name="android:background">@drawable/input_vertical_divide</item>
+	</style>
+	<!-- input publish tool line -->
+	<style name="publish_tool_line">
+		<item name="android:layout_width">2dip</item>
+		<item name="android:text">" "</item>
+		<item name="android:layout_gravity">bottom</item>
+		<item name="android:layout_height">32dp</item>
+		<item name="android:layout_alignParentBottom">true</item>
+		<item name="android:background">@drawable/input_vertical_divide</item>
+	</style>
+	<!-- input consume edit -->
+	<style name="consume_edit">
+		<item name="android:layout_width">300dp</item>
+		<item name="android:layout_height">45dp</item>
+		<item name="android:background">@drawable/input_consume_edit_bg_sec</item>
+		<item name="android:textColor">#333333</item>
+		<item name="android:textSize">17sp</item>
+		<item name="android:layout_marginTop">8dp</item>
+		<item name="android:layout_gravity">center</item>
+		<item name="android:gravity">left|center</item>
+		<item name="android:textColorHint">#aaaaaa</item>
+		<item name="android:paddingLeft">10dp</item>
+		<item name="android:paddingRight">10dp</item>
+		<item name="android:singleLine">true</item>
+	</style>
+	<!-- input consume text -->
+	<style name="consume_text">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textColor">#333333</item>
+		<item name="android:textSize">17sp</item>
+		<item name="android:layout_marginLeft">18dp</item>
+		<item name="android:layout_marginTop">8dp</item>
+	</style>
+
+	<style name="dialog_animation">
+		<item name="android:windowEnterAnimation">@anim/dialog_in</item>
+		<item name="android:windowExitAnimation">@anim/dialog_out</item>
+	</style>
+
+	<style name="takedialog_theme" parent="@android:style/Theme.Translucent.NoTitleBar">
+		<item name="android:windowAnimationStyle">@style/dialog_animation</item>
+	</style>
+	<style name="base_image_browser_theme" parent="@android:style/Theme.Translucent.NoTitleBar">
+		<item name="android:windowAnimationStyle">@style/dialog_animation</item>
+	</style>
+	<style name="hintdialog_theme" parent="@android:style/Theme.Translucent.NoTitleBar">
+		<item name="android:windowAnimationStyle">@style/dialog_animation</item>
+	</style>
+	<style name="input_searchbox_text">
+		<item name="android:textSize">15sp</item>
+		<item name="android:hint">@string/searchbox_edit_default</item>
+		<item name="android:textColorHint">#aaaaaa</item>
+		<item name="android:singleLine">true</item>
+	</style>
+	<style name = "Style.AboutDialog" parent = "@android:style/Theme.Dialog">
+		<item name = "android:windowFrame">@null</item>
+        <item name = "android:windowIsFloating">true</item>
+       	<item name = "android:windowIsTranslucent">false</item>
+        <item name = "android:windowNoTitle">true</item>
+        <item name = "android:background">@null</item>
+        <item name = "android:windowBackground">@drawable/common_dialog_normal</item>
+        <item name = "android:backgroundDimEnabled">true</item>
+    </style>
+	<!-- login input edittext -->
+	<style name="login_input">
+		<!-- <item name="android:layout_width">fill_parent</item> <item name="android:layout_height">45dp</item> 
+			<item name="android:background">@drawable/login_edittext_bg</item> -->
+		<item name="android:paddingLeft">12dip</item>
+		<item name="android:paddingRight">12dip</item>
+		<!-- <item name="android:gravity">center_vertical</item> -->
+	</style>
+	<!-- ======================input=============input=============input=========input=============== -->
+
+	<!-- ======================life=============life=============life=========life=============== -->
+	<style name="life_search_radio">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_centerVertical">true</item>
+		<item name="android:button">@drawable/life_radio_button_sec</item>
+		<!-- 
+		<item name="android:focusable">false</item>
+		<item name="android:focusableInTouchMode">false</item>
+		<item name="android:clickable">false</item>
+		 -->
+	</style>
+	<style name="life_common_list">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:cacheColorHint">#00000000</item>
+		<item name="android:listSelector">#00000000</item>
+		<item name="android:fastScrollEnabled">true</item>
+		<item name="android:divider">@drawable/life_list_divider</item>
+		<item name="android:dividerHeight">1px</item>
+	</style>
+	<!-- ======================life=============life=============life=========life=============== -->
+	
+	
+	
+	<!-- titles -->
+	
+	<!-- title buttons -->
+	
+	<style name="title_button_refresh">
+		<item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:background">@drawable/common_refresh_selector</item>
+	</style>
+	
+	<style name="title_button_prev">
+		<item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:background">@drawable/common_refresh_selector</item>
+	</style>
+	<!-- title buttons -->
+	
+	<!-- titles -->
+	
+	<!-- more -->
+	<style name="more_bingthird_account_checkbox">
+	    <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">2dip</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:button">@drawable/more_checkbox_sec</item>
+	</style>
+	<!-- more -->
+	<style name="Transparent">
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowAnimationStyle">@style/activity_animation</item>
+		<item name="android:windowBackground">@drawable/transparent</item>
+		<item name="android:windowNoTitle">true</item>
+	</style>
+	<style name="activity_animation">
+		<item name="android:windowEnterAnimation">@anim/push_left_in</item>
+		<item name="android:windowExitAnimation">@anim/push_left_out</item>
+	</style>
+</resources>

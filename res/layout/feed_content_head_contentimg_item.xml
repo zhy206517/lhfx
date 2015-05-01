@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  <ImageView android:id="@+id/content_item_img"
+  	android:scaleType="fitCenter"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"/>
+  <LinearLayout android:id="@+id/img_index_layout"
+      android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginLeft="12dp"
+      android:layout_marginRight="12dp"
+      android:paddingBottom="12dp"
+      android:orientation="horizontal" android:layout_centerHorizontal="true">
+     <ImageView android:id="@+id/point1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white"  android:visibility="gone" android:layout_marginRight="4dp"/>
+     <ImageView android:id="@+id/point2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white" android:visibility="gone" android:layout_marginRight="4dp"/>
+     <ImageView android:id="@+id/point3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white" android:visibility="gone" android:layout_marginRight="4dp"/>
+     <ImageView android:id="@+id/point4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white" android:visibility="gone" android:layout_marginRight="4dp"/>
+     <ImageView android:id="@+id/point5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white" android:visibility="gone" android:layout_marginRight="4dp"/>
+     <ImageView android:id="@+id/point6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white" android:visibility="gone" android:layout_marginRight="4dp"/>
+     <ImageView android:id="@+id/point7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white" android:visibility="gone" android:layout_marginRight="4dp"/>
+     <ImageView android:id="@+id/point8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/point_white" android:visibility="gone"/>
+  </LinearLayout>
+  <RelativeLayout android:id="@+id/img_load_progressBar"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:visibility="gone"
+      android:orientation="vertical">
+      <ProgressBar android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerInParent="true"
+          android:indeterminate="false"
+          android:indeterminateDrawable="@drawable/process"/>
+  </RelativeLayout>
+</RelativeLayout>

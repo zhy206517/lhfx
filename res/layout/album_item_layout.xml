@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="150dp"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="2px"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/album_pic_top" />
+
+    <ImageView
+        android:id="@+id/album_img_id"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:paddingBottom="2px"
+        android:paddingTop="2px"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="2px"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/album_pic_bottom" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/album_img_index0"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/pic_index_normal" />
+
+        <ImageView
+            android:id="@+id/album_img_index1"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/pic_index_normal" />
+
+        <ImageView
+            android:id="@+id/album_img_index2"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/pic_index_normal" />
+
+        <ImageView
+            android:id="@+id/album_img_index3"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginRight="4dp"
+            android:src="@drawable/pic_index_normal" />
+
+        <ImageView
+            android:id="@+id/album_img_index4"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:src="@drawable/pic_index_normal" />
+    </LinearLayout>
+
+</RelativeLayout>

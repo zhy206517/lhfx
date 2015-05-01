@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/life_bg_bit" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout style="@style/title_total" >
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:onClick="toBack"
+                android:background="@drawable/common_back_selector" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/input_title_text"
+                    android:layout_width="200dp"
+                    android:text="@string/weixin_share_title_lable" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:onClick="toSearch"
+                android:background="@drawable/wxcb_search" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="-5dp" >
+
+            <com.youa.mobile.news.NewsTitleRadioGroup
+                android:id="@+id/tab_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <RadioButton
+                        android:id="@+id/my_enjoy"
+                        style="@style/wenxin_share_radio"
+                        android:background="@drawable/news_title_radio_bg_middle"
+                        android:checked="true"
+                        android:text="@string/weixin_share_myenjoy_lable" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <RadioButton
+                        android:id="@+id/my_share"
+                        style="@style/wenxin_share_radio"
+                        android:background="@drawable/weixin_title_radio_bg_middle"
+                        android:text="@string/weixin_share_myshare_lable" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" >
+
+                    <RadioButton
+                        android:id="@+id/rec_viewed"
+                        style="@style/wenxin_share_radio"
+                        android:background="@drawable/news_title_radio_bg_middle"
+                        android:text="@string/weixin_share_recviewed_lable" />
+                </RelativeLayout>
+            </com.youa.mobile.news.NewsTitleRadioGroup>
+        </RelativeLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="0.0"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+
+</TabHost>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/settings_bg_bit">
+    <include layout="@layout/more_title"/>
+    <LinearLayout android:layout_width="wrap_content" 
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:background="@drawable/information_kuang"
+                  android:layout_marginLeft="12dip"
+	              android:layout_marginRight="12dip"
+	              android:layout_marginTop="6dip">
+	<RelativeLayout 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="45dip"
+	    android:orientation="horizontal" >
+	    <TextView 
+		    android:layout_width="220dp" 
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="12dip"
+	        android:text="@string/browser_settings_lable"
+	        android:layout_gravity="center_vertical"
+	        android:textSize="@dimen/information_content_size"
+	        android:textColor="@color/information_black"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        />
+	    <CheckBox
+	        android:id="@+id/browser_settings_id"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="2dip"
+	        android:layout_centerVertical="true"
+	        android:button="@drawable/more_checkbox_sec"/>
+	</RelativeLayout>
+	</LinearLayout>
+</LinearLayout>

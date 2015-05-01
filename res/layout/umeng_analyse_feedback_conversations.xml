@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#FFFFFFFF">
+   <RelativeLayout style="@style/title_total">
+	 <ImageButton 
+		android:id="@+id/back"
+		android:background="@drawable/feed_title_butt_bg"
+		android:src="@drawable/ic_back" android:visibility="gone"
+		style="@style/input_title_left_button"/>
+	 <LinearLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_centerHorizontal="true"
+		android:gravity="center_vertical">
+		<TextView 
+			android:id="@+id/umeng_analyse_um_feedbacklist_title" 
+			style="@style/input_title_text"/>
+	  </LinearLayout>
+	  <ImageButton android:id="@+id/umeng_analyse_imgBtn_submitFb"
+		 android:textColor="@drawable/input_title_text_color_sec"
+		 android:background="@drawable/input_title_button_bg_sec"
+		 style="@style/input_title_right_button"
+		 android:src="@drawable/feed_edit" />
+    </RelativeLayout>
+	<ListView android:id="@+id/android:list" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:background="#E9E9E9"
+		android:divider="#E9E9E9" android:dividerHeight="0dip"
+		android:cacheColorHint="#E9E9E9" android:listSelector="@drawable/umeng_analyse_blank_selector" />
+</LinearLayout>

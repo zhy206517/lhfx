@@ -1,0 +1,8 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- Non focused states -->
+	<item android:state_focused="true" android:state_enabled="true" android:state_pressed="false" android:drawable="@drawable/information_button" />
+	<item android:state_enabled="true" android:state_pressed="true" android:drawable="@drawable/information_button_focus" />
+
+	<item android:drawable="@drawable/information_button" />
+
+</selector>

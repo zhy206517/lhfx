@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/life_bg_bit">
+    <RelativeLayout style="@style/title_total"
+        android:descendantFocusability="afterDescendants">
+        <ImageButton android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/common_back_selector"
+            android:contentDescription="@string/img"/>
+        <LinearLayout android:id="@+id/titleLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical" >
+            <TextView android:id="@+id/title"
+                style="@style/input_title_text" />
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/common_close_selector"
+            android:contentDescription="@string/img"/>
+    </RelativeLayout>
+
+    <WebView android:id="@+id/web_shop_webview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"/>
+</LinearLayout>

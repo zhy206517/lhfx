@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title"
+    style="@style/title_total"
+    android:descendantFocusability="afterDescendants" >
+
+    <ImageButton
+        android:id="@+id/turnpage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="1dip"
+        android:background="@drawable/common_fenlan_selector" />
+
+    <TextView
+        android:id="@+id/title_text"
+        style="@style/title_middle"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/tag_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/tag_hit_bg_selector"
+        android:orientation="horizontal"
+        android:gravity="center" >
+        <TextView
+            android:id="@+id/tag_name"
+            style="@style/tag_name_stytle"
+            android:textColor="#858585"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/tag_name_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/select_tag_arrow_down"/>
+        <ProgressBar
+            android:id="@+id/tag_progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:visibility="gone"
+            android:indeterminateDrawable="@drawable/process" />
+    </LinearLayout>
+
+</RelativeLayout>

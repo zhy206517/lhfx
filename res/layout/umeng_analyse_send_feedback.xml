@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:id="@+id/umeng_analyse_rootId" android:background="#FFFFFFFF">
+    <RelativeLayout style="@style/title_total">
+	    <ImageButton 
+		    android:id="@+id/back"
+		    android:background="@drawable/feed_title_butt_bg"
+		    android:src="@drawable/ic_back"
+		    android:visibility="gone"
+		    style="@style/input_title_left_button"/>
+	    <LinearLayout 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" 
+		    android:layout_centerHorizontal="true"
+		    android:gravity="center_vertical">
+		   <TextView 
+			  android:id="@+id/umeng_analyse_feedback_umeng_title" 
+			  style="@style/input_title_text"/>
+	    </LinearLayout>
+	    <TextView 
+		    android:id="@+id/umeng_analyse_feedback_submit" 
+		    android:text="@string/input_send"
+		    android:textColor="@drawable/input_title_text_color_sec"
+		    android:background="@drawable/input_title_button_bg_sec"
+		    style="@style/input_title_right_button"/>
+       </RelativeLayout>
+		<ImageButton android:id="@+id/umeng_analyse_feedback_see_list_btn"
+			android:layout_marginRight="8dip" android:layout_centerVertical="true"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true" android:visibility="gone"
+			android:background="@drawable/umeng_analyse_see_list_selector" />
+	<EditText android:id="@+id/umeng_analyse_feedback_content"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:layout_marginLeft="9dip" android:layout_marginRight="9dip"
+		android:layout_marginTop="7dip" android:layout_marginBottom="2dip"
+		android:paddingLeft="9dip" android:paddingTop="10dip"
+		android:layout_weight="1.0" android:maxEms="10" android:minEms="10"
+		android:hint="请输入您的反馈意见" android:gravity="top" android:textColor="#737373" />
+	<RelativeLayout android:orientation="horizontal"
+		android:layout_width="fill_parent" android:layout_height="55dip"
+		android:layout_marginTop="2dip" >
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="55dip" android:gravity="center">"
+		<Spinner android:id="@+id/umeng_analyse_feedback_age_spinner"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true" android:layout_marginRight="10dip" />
+		<Spinner android:id="@+id/umeng_analyse_feedback_gender_spinner"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:layout_centerVertical="true" />
+	</LinearLayout>
+	</RelativeLayout>
+</LinearLayout>

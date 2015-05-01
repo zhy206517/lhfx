@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/life_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/more_title" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dip"
+                android:layout_marginRight="12dip"
+                android:layout_marginTop="6dip"
+                android:background="@drawable/information_kuang"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginRight="12dip"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/msg_notify_checkbox"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dp"
+                        android:layout_gravity="fill|center_horizontal"
+                        android:background="@null"
+                        android:drawableRight="@drawable/more_right_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/msg_notify_lable"
+                        android:textColor="@color/information_black"
+                        android:textSize="@dimen/information_content_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/feed_line"
+                    android:scaleType="fitCenter" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginRight="12dip"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/set_lbs_checkbox"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dp"
+                        android:layout_gravity="fill|center_horizontal"
+                        android:background="@null"
+                        android:drawableRight="@drawable/more_right_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/lbs_function_lable"
+                        android:textColor="@color/information_black"
+                        android:textSize="@dimen/information_content_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/feed_line"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginRight="12dip"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <Button
+                        android:id="@+id/browser_modle_id"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dp"
+                        android:layout_gravity="fill|center_horizontal"
+                        android:background="@null"
+                        android:drawableRight="@drawable/more_right_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/browser_modle_lable"
+                        android:textColor="@color/information_black"
+                        android:textSize="@dimen/information_content_size" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/feed_line"
+                    android:scaleType="fitCenter" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dip"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginRight="12dip"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/sync_settings_id"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dp"
+                        android:layout_gravity="fill|center_horizontal"
+                        android:background="@null"
+                        android:drawableRight="@drawable/more_right_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/sync_settings_lable"
+                        android:textColor="@color/information_black"
+                        android:textSize="@dimen/information_content_size" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="92dip"
+                android:layout_marginLeft="12dip"
+                android:layout_marginRight="12dip"
+                android:layout_marginTop="12dip"
+                android:background="@drawable/information_kuang"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginRight="12dip"
+                    android:visibility="gone" >
+
+                    <Button
+                        android:id="@+id/binding_third_account"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dp"
+                        android:layout_gravity="fill|center_horizontal"
+                        android:background="@null"
+                        android:drawableRight="@drawable/more_right_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/more_binding_third_account_lable"
+                        android:textColor="@color/information_black"
+                        android:textSize="@dimen/information_content_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/feed_line"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginRight="12dip" >
+
+                    <Button
+                        android:id="@+id/feedback"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dp"
+                        android:layout_gravity="fill|center_horizontal"
+                        android:background="@null"
+                        android:drawableRight="@drawable/more_right_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/feedback_lable"
+                        android:textColor="@color/information_black"
+                        android:textSize="@dimen/information_content_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/feed_line"
+                    android:scaleType="fitCenter" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dip"
+                    android:layout_marginRight="12dip" >
+
+                    <Button
+                        android:id="@+id/about"
+                        android:layout_width="fill_parent"
+                        android:layout_height="43dp"
+                        android:layout_gravity="fill|center_horizontal"
+                        android:background="@null"
+                        android:drawableRight="@drawable/more_right_icon"
+                        android:gravity="center_vertical"
+                        android:text="@string/about_client_lable"
+                        android:textColor="@color/information_black"
+                        android:textSize="@dimen/information_content_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45dip"
+                android:layout_marginLeft="12dip"
+                android:layout_marginRight="12dip"
+                android:layout_marginTop="12dip"
+                android:background="@drawable/information_kuang"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/check_update_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@null"
+                    android:gravity="left|fill_vertical"
+                    android:paddingLeft="12dp"
+                    android:text="@string/about_update_lable"
+                    android:textColor="@color/information_black"
+                    android:textSize="@dimen/information_content_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45dip"
+                android:layout_marginLeft="12dip"
+                android:layout_marginRight="12dip"
+                android:layout_marginTop="12dip"
+                android:background="@drawable/information_kuang"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/clean_cache_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@null"
+                    android:gravity="left|fill_vertical"
+                    android:paddingLeft="12dp"
+                    android:text="@string/clean_cache_lable"
+                    android:textColor="@color/information_black"
+                    android:textSize="@dimen/information_content_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="45dip"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="12dip"
+                android:layout_marginRight="12dip"
+                android:layout_marginTop="12dip"
+                android:background="@drawable/information_kuang"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/exit_user_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@null"
+                    android:gravity="left|fill_vertical"
+                    android:paddingLeft="12dp"
+                    android:text="@string/exit_client_lable"
+                    android:textColor="@color/information_black"
+                    android:textSize="@dimen/information_content_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jptj_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="24dp"
+                    android:text="@string/jptj_tip"
+                    android:textColor="@color/information_black"
+                    android:textSize="@dimen/information_content_size" />
+
+                <LinearLayout
+                    android:id="@+id/jptj_app_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/jptj_item_bg"
+                    android:orientation="vertical" >
+
+                    <View
+                        android:id="@+id/app_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/jptj_item_line_top" />
+                </LinearLayout>
+
+                <!-- <include layout="@layout/jptj_item" /> -->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

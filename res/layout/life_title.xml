@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/title_total">
+	<Button 
+		android:id="@+id/back"
+		android:textColor="@drawable/input_title_text_color_sec"
+		android:background="@drawable/input_title_button_bg_sec"
+		android:text="@string/common_prev"
+		style="@style/input_title_left_button"
+		android:layout_width="50dp"
+		android:layout_height="32dp"
+		android:textSize="13sp"/>
+	<LinearLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+		android:layout_centerHorizontal="true"
+		android:gravity="center_vertical">
+		<TextView 
+			android:id="@+id/title" 
+			style="@style/input_title_text"/>
+	</LinearLayout>
+	<Button 
+		android:id="@+id/next_step" 
+		android:text="@string/common_next"
+		android:textColor="@drawable/input_title_text_color_sec"
+		android:background="@drawable/input_title_button_bg_sec"
+		style="@style/input_title_right_button"
+		android:layout_width="50dp"
+		android:layout_height="32dp"/>
+</RelativeLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/life_bg_bit"
+    android:id="@+id/root_layout">
+    <RelativeLayout
+        style="@style/title_total" >
+	<ImageButton 
+		android:id="@+id/back"
+		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/common_back_selector"
+		/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical" >
+            <TextView
+                android:id="@+id/title"
+                style="@style/input_title_text"/>
+        </LinearLayout>
+    </RelativeLayout>
+	<LinearLayout android:id="@+id/top_search_bar"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/input_search_bar_bg"
+		android:gravity="center"
+		android:paddingTop="6dp"
+		android:paddingRight="6dp"
+		android:paddingBottom="6dp">
+		<EditText android:id="@+id/topic_keyword"
+			android:layout_width="0dip"
+			android:layout_height="30dip" 
+			android:background="@drawable/input_search_box_bg"
+			android:focusable="true"  
+			android:focusableInTouchMode="true"
+			style="@style/input_searchbox_text"
+			android:hint="@string/search_hint_msg"
+			android:paddingLeft="6dp"
+			android:layout_weight="4"
+			android:drawableLeft="@drawable/input_search_icon"
+			/>
+		<Button android:text="@string/searchbox_edit_default"
+				android:id="@+id/location_search" 
+				android:layout_width="0dip"
+				android:layout_height="30dip"
+				android:layout_marginLeft="6dp"
+				android:layout_weight="1"
+				android:gravity="center"
+				android:background="@drawable/life_search_button"/>
+	</LinearLayout>
+   <LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical">
+	<FrameLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_weight="3"
+        android:id="@+id/map_panle"
+        android:visibility="gone"
+        >
+    <com.baidu.mapapi.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
+        />
+    <ImageView android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/map_panl"
+        android:clickable="false"
+        android:scaleType="fitXY"/>
+    	</FrameLayout>
+   <LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical"
+		android:gravity="center"
+		android:layout_weight="2">
+		<LinearLayout android:id="@+id/linear_null"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:orientation="vertical" android:layout_centerInParent="true"
+			android:gravity="center" android:visibility="gone">
+			<TextView android:id="@+id/list_null" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:visibility="gone"
+				android:singleLine="true" android:gravity="center_horizontal"
+			    android:text="@string/location_load_error"
+				android:layout_marginBottom="4dip" />
+		</LinearLayout>
+  	<ListView android:id="@+id/location_list"
+        style="@style/life_common_list"
+		android:visibility="gone"
+		android:fadingEdge="none"
+		/>
+  	<ProgressBar 
+			android:id="@+id/progressBar"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			style="?android:attr/progressBarStyle" 
+			android:layout_gravity="center"
+			android:indeterminate="false" 
+			android:indeterminateDrawable="@drawable/process"/>
+  	    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

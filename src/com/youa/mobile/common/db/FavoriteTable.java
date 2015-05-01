@@ -1,0 +1,56 @@
+package com.youa.mobile.common.db;
+
+import android.database.sqlite.SQLiteDatabase;
+
+public class FavoriteTable extends DBTable {
+
+	public static final String TABLE_NAME = "Favotite";
+	//colume name
+	public static final String COLUMN_ID = "id";
+	public static final String COLUMN_USER_ID = "u_id";
+	public static final String COLUMN_LAST_LIKE_NAME = "last_like_name";
+	public static final String COLUMN_LAST_LIKE_TIME = "last_like_time"; 
+	public static final String COLUMN_ARTICLE_ID = "article_id"; 
+	public static final String COLUMN_ARTICLE_TITLE = "article_title";
+	public static final String COLUMN_ARTICLE_CONTENT = "article_content";
+	public static final String COLUMN_ARTICLE_CONTENT_IMAGE = "article_content_image";
+	public static final String COLUMN_ARTICLE_REPLY_NAME = "article_reply_name";
+	public static final String COLUMN_ARTICLE_REPLY = "article_reply"; 
+	public static final String COLUMN_ARTICLE_REPLY_IMAGE = "article_reply_image";
+	public static final String COLUMN_ARTICLE_LIKE_COUNT = "article_like_count";
+	public static final String COLUMN_ARTICLE_COMMENT_COUNT = "article_comment_count"; 
+	public static final String COLUMN_ARTICLE_FORWARD_COUNT = "article_forward_count";
+
+
+	public FavoriteTable() {
+		super(TABLE_NAME);
+	}
+	@Override
+	void createIndex(SQLiteDatabase db) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	void createTableIfNoExists(SQLiteDatabase db) {
+		String sqlStr = "CREATE TABLE "
+		      + TABLE_NAME
+		      + " ("
+		      + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+		      + COLUMN_USER_ID + " TEXT, "
+		      + COLUMN_LAST_LIKE_NAME + " TEXT, "
+		      + COLUMN_LAST_LIKE_TIME + " TEXT, " 
+		      + COLUMN_ARTICLE_ID + " TEXT, "
+		      + COLUMN_ARTICLE_TITLE + " TEXT, "
+		      + COLUMN_ARTICLE_CONTENT + " TEXT, "
+		      + COLUMN_ARTICLE_CONTENT_IMAGE + " TEXT, "
+		      + COLUMN_ARTICLE_REPLY_NAME + " TEXT, "
+		      + COLUMN_ARTICLE_REPLY + " TEXT, "
+		      + COLUMN_ARTICLE_REPLY_IMAGE + " TEXT, "
+		      + COLUMN_ARTICLE_LIKE_COUNT + " TEXT, "
+		      + COLUMN_ARTICLE_COMMENT_COUNT + " TEXT, "
+		      + COLUMN_ARTICLE_FORWARD_COUNT + " TEXT "
+		      + ");";
+		db.execSQL(sqlStr);
+		
+	} 
+}

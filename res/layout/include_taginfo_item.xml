@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:leho="http://schemas.android.com/apk/res/com.youa.mobile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp" >
+    <LinearLayout
+        android:id="@+id/msubs_right_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical" >
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2px"
+            android:layout_weight="10"
+            android:background="@drawable/ic_msubs_line" />
+        <TextView
+            android:id="@+id/msubs_right_parent_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:shadowColor="@color/whrite"
+            android:shadowDx="0."
+            android:shadowDy="1."
+            android:shadowRadius="1."
+            android:textColor="#B2B1B0"
+            android:textSize="@dimen/size_15" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2px"
+            android:layout_weight="10"
+            android:background="@drawable/ic_msubs_line" />
+    </LinearLayout>
+
+    <com.youa.mobile.common.widget.FlowLayout
+        android:id="@+id/msubs_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        leho:horizontalSpacing="10dp"
+        leho:verticalSpacing="10dp" />
+
+</LinearLayout>

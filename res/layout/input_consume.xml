@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout 
+	android:id="@+id/LinearLayout01"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical" 
+	android:background="#eaeaea"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<include layout="@layout/input_title"/>
+	<TextView 
+		android:text="@string/consume_price" 
+		style="@style/consume_text"/>
+	<EditText 
+		android:id="@+id/price" 
+		style="@style/consume_edit"
+		android:maxLength="8"
+		android:hint="@string/consume_price_hint"
+		android:nextFocusDown="@+id/people"
+		android:inputType="numberDecimal"/>
+	<TextView 
+		android:text="@string/consume_people" 
+		style="@style/consume_text"/>
+	<EditText 
+		android:id="@+id/people"
+		style="@style/consume_edit"
+		android:hint="1"
+		android:inputType="number"
+		android:maxLength="3"/>
+	<!-- android:hint="@string/consume_people_hint" -->
+</LinearLayout>

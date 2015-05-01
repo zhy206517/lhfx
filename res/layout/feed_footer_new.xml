@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/footer" android:layout_width="fill_parent"
+	android:layout_height="wrap_content" android:gravity="center_horizontal">
+	<!-- 内容 -->
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/footer_contentLayout"
+		android:orientation="horizontal" android:paddingTop="5dip"
+		android:paddingBottom="5dip" android:gravity="center_vertical">
+		<!-- 箭头图像、进度条 -->
+		<FrameLayout android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerVertical="true"
+			android:layout_marginRight="5dip">
+			<!-- 箭头 -->
+			<ImageView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_gravity="center"
+				android:src="@drawable/feed_head_refresh" android:id="@+id/footer_arrowImageView" />
+			<!-- 进度条 -->
+			<ProgressBar android:layout_width="wrap_content"
+				android:layout_height="wrap_content" style="?android:attr/progressBarStyleSmall"
+				android:layout_gravity="center" android:id="@+id/footer_progressBar"
+				android:indeterminate="false" android:indeterminateDrawable="@drawable/process"
+				android:visibility="gone" />
+		</FrameLayout>
+		<!-- 提示、最近更新 -->
+		<LinearLayout android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+			android:orientation="vertical" android:gravity="center_horizontal">
+
+			<!-- 提示 -->
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/feed_refresh"
+				android:textColor="@color/feed_refresh_font_color" android:textSize="20sp"
+				android:id="@+id/footer_tipsTextView" />
+
+			<!-- 最近更新 -->
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:id="@+id/footer_lastUpdatedTextView"
+				android:text="上次更新:" android:textColor="@color/feed_refresh_font_color"
+				android:textSize="10sp" />
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

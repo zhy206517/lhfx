@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="200dp">
+		<EditText 
+			android:id="@+id/content"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent" />
+	</LinearLayout>
+
+	<LinearLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<Button 
+			android:text="ADDinsert"
+			android:id="@+id/add_insert"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+		<Button 
+			android:text="ADDdelete"
+			android:id="@+id/add_delete"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+			<Button 
+			android:text="ADDsearch"
+			android:id="@+id/add_search"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+		<LinearLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<Button 
+			android:text="SAYinsert"
+			android:id="@+id/say_insert"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+		<Button 
+			android:text="SAYdelete"
+			android:id="@+id/say_delete"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+			<Button 
+			android:text="SAYsearch"
+			android:id="@+id/say_search"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+	<LinearLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<Button 
+			android:text="FAVinsert"
+			android:id="@+id/favorite_insert"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+		<Button 
+			android:text="FAVdelete"
+			android:id="@+id/favorite_delete"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+			<Button 
+			android:text="FAVsearch"
+			android:id="@+id/favorite_search"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+	</LinearLayout>
+	
+
+
+</LinearLayout>

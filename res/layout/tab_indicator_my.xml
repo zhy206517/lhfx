@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_label"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView android:id="@+id/tab_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textSize="@dimen/information_content_size"
+        android:textColor="@color/information_black"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tab_count"
+        style="@style/information_top_radio_count"
+        android:layout_marginTop="2dip"
+		android:textSize="@dimen/information_subcontent_size"
+		android:textColor="@color/information_gray"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+        android:layout_below="@id/tab_title"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/tab_sep"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/my_tab_separator"
+        android:visibility="invisible" />
+
+</RelativeLayout>

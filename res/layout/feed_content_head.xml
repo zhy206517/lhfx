@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/life_bg_bit"
+    android:orientation="vertical"
+    android:paddingBottom="12dip" >
+
+    <RelativeLayout
+        android:id="@+id/content_user"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingLeft="12dip"
+        android:paddingTop="6dip" >
+
+        <ImageView
+            android:id="@+id/content_user_head"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="7dp"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/content_user_name"
+            style="@style/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toRightOf="@+id/content_user_head"
+            android:gravity="bottom" />
+
+        <ImageView
+            android:id="@+id/feed_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/content_user_name" />
+
+        <TextView
+            android:id="@+id/content_public_time"
+            style="@style/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="bottom"
+            android:paddingRight="12dp"
+            android:textSize="@dimen/size_15" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/content_public_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="59dp"
+        android:layout_marginTop="-10dp"
+        android:textColor="#555245"
+        android:textSize="@dimen/size_17" />
+
+    <LinearLayout
+        android:id="@+id/content_transpond"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dip"
+        android:layout_marginLeft="12dip"
+        android:layout_marginRight="12dip"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical" > <!-- android:background="@drawable/feed_pop_bg" -->
+        <!--
+            <TextView
+            android:id="@+id/org_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        -->
+
+        <LinearLayout
+            android:id="@+id/content_img"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+        <!--
+        <com.youa.mobile.login.widget.CustomGallery
+    	android:spacing="0dp"
+	    android:id="@+id/content_gallery"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_gravity="center"/>
+        -->
+
+        <LinearLayout
+            android:id="@+id/content_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/content_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#555245"
+                android:textSize="@dimen/size_16" />
+
+            <LinearLayout
+                android:id="@+id/commerial"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/place"
+                    style="@style/feed_commerial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="6dip"
+                    android:drawableLeft="@drawable/ic_feed_place"
+                    android:singleLine="true"
+                    android:textColor="#858585" />
+
+                <TextView
+                    android:id="@+id/price"
+                    style="@style/feed_commerial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_feed_money"
+                    android:singleLine="true"
+                    android:textColor="#858585" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dip"
+                android:layout_marginRight="12dip" >
+
+                <LinearLayout
+                    android:id="@+id/bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true" >
+
+                    <ImageView
+                        android:id="@+id/like_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/feed_like" />
+
+                    <TextView
+                        android:id="@+id/like"
+                        style="@style/bottom_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/comment_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/feed_comment" />
+
+                    <TextView
+                        android:id="@+id/comment"
+                        style="@style/bottom_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/transport_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/feed_transport" />
+
+                    <TextView
+                        android:id="@+id/transport"
+                        style="@style/bottom_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/form_where"
+                    style="@style/bottom_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/comment_num"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF333333"
+        android:paddingLeft="12dip"
+        android:gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/size_16"
+        android:visibility="gone" />
+</LinearLayout>

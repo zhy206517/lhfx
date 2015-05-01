@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- feed friend manager -->
+	<dimen name="search_input_height">24dip</dimen>
+	<dimen name="search_width">16dp</dimen>
+	<dimen name="search_height">16dp</dimen>
+	<dimen name="search_button_height">28dip</dimen>
+</resources>

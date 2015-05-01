@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+<LinearLayout 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:background="@drawable/list_manage_kuguang">
+	    <RelativeLayout android:id="@+id/friend_addfriend" android:layout_width="fill_parent"
+	        android:layout_height="wrap_content" android:orientation="horizontal" android:paddingLeft="10dp" android:paddingRight="10dp" android:paddingTop="7.5dp" android:paddingBottom="7.5dp">
+	        	<ImageView
+                    android:id="@+id/manager_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp" 
+                    android:src="@drawable/mengmalabao"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/manager_img" 
+                    android:text="@string/feed_friend_manager_addfriend"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/more_right_icon" />
+	    </RelativeLayout>
+	    <ImageView android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:scaleType="fitCenter"
+	        android:background="@drawable/life_list_divider"/>
+	     <RelativeLayout android:id="@+id/friend_attention" android:layout_width="fill_parent"
+	        android:layout_height="wrap_content" android:orientation="horizontal" android:paddingLeft="10dp" android:paddingRight="10dp" android:paddingTop="7.5dp" android:paddingBottom="7.5dp">
+	        	<ImageView
+	        	    android:id="@+id/manager_img1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/mengmalabao" />
+                <TextView
+                    android:id="@+id/attentionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/manager_img1" 
+                    android:text="@string/feed_friend_manager_attentioned"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/more_right_icon" />
+	    </RelativeLayout>
+	    
+	</LinearLayout>
+	<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/feed_friend_manager_recommend" android:layout_marginTop="10dp" android:layout_marginBottom="4dp" android:layout_marginLeft="10dp"/>
+</LinearLayout>
